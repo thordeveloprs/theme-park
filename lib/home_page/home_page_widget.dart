@@ -73,6 +73,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     Align(
+                      alignment: AlignmentDirectional(0.97, 0.24),
+                      child: Image.asset(
+                        'assets/images/ridesss_copy.png',
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
                       alignment: AlignmentDirectional(0, 0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 550, 0, 0),
@@ -133,7 +141,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.91, 0.6),
+                      alignment: AlignmentDirectional(0.96, 0.61),
                       child: SvgPicture.asset(
                         'assets/images/639cc9bfbcb1915406c8e470_floating-yellow-fish.svg',
                         width: 55,
@@ -141,7 +149,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.05, 0.99),
+                      alignment: AlignmentDirectional(-1.05, 0.87),
                       child: SvgPicture.asset(
                         'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
                         width: 100,
@@ -149,12 +157,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.83, 0.33),
+                      alignment: AlignmentDirectional(0.84, -0.83),
                       child: Image.asset(
                         'assets/images/ballon.png',
                         width: 100,
                         fit: BoxFit.cover,
                       ),
+                    ),
+                    SvgPicture.asset(
+                      'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
                     ),
                   ],
                 ),
