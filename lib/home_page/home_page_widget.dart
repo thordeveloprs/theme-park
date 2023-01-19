@@ -164,11 +164,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SvgPicture.asset(
-                      'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
+                    Align(
+                      alignment: AlignmentDirectional(0.34, 1.04),
+                      child: SvgPicture.asset(
+                        'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.59, 0.99),
+                      child: Image.asset(
+                        'assets/images/starfishh.png',
+                        width: 55,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ],
                 ),

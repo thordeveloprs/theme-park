@@ -41,6 +41,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'HomePage',
               path: 'homePage',
               builder: (context, params) => HomePageWidget(),
+            ),
+            FFRoute(
+              name: 'Rides_detail',
+              path: 'ridesDetail',
+              builder: (context, params) => RidesDetailWidget(),
+            ),
+            FFRoute(
+              name: 'map_view',
+              path: 'mapView',
+              builder: (context, params) => MapViewWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
