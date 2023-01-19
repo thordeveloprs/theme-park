@@ -31,36 +31,36 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
         child: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryColor,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30,
+          leading: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30,
+              ),
+              onPressed: () {
+                print('IconButton pressed ...');
+              },
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
+          ),
+          title: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+            child: Text(
+              'Page Title',
+              style: FlutterFlowTheme.of(context).title2.override(
+                    fontFamily: 'Poppins',
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
+            ),
           ),
           actions: [],
-          flexibleSpace: FlexibleSpaceBar(
-            title: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-              child: Text(
-                'Page Title',
-                style: FlutterFlowTheme.of(context).title2.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
-                      fontSize: 22,
-                    ),
-              ),
-            ),
-            centerTitle: true,
-            expandedTitleScale: 1.0,
-          ),
+          centerTitle: true,
           elevation: 2,
         ),
       ),
