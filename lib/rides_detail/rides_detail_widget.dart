@@ -199,63 +199,77 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
-                                    child: Icon(
-                                      Icons.favorite_border,
-                                      color: FlutterFlowTheme.of(context)
-                                          .timeColor,
-                                      size: 24,
+                              child: InkWell(
+                                onTap: () async {
+                                  FFAppState().update(() {
+                                    FFAppState().isfavourite = true;
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 10, 0),
+                                      child: Icon(
+                                        Icons.favorite_border,
+                                        color: FlutterFlowTheme.of(context)
+                                            .timeColor,
+                                        size: 24,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Add to Favourites',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ],
+                                    Text(
+                                      'Add to Favourites',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           if (FFAppState().isfavourite == true)
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
-                                    child: Icon(
-                                      Icons.favorite,
-                                      color: Color(0xFFFF0000),
-                                      size: 24,
+                              child: InkWell(
+                                onTap: () async {
+                                  FFAppState().update(() {
+                                    FFAppState().isfavourite = false;
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 10, 0),
+                                      child: Icon(
+                                        Icons.favorite,
+                                        color: Color(0xFFFF0000),
+                                        size: 24,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Remove From Favourites',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ],
+                                    Text(
+                                      'Remove From Favourites',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           Padding(

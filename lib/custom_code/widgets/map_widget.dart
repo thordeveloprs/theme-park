@@ -13,16 +13,16 @@ import 'dart:async';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'marker_pin.dart';
 
-class MapViewWidget extends StatefulWidget {
+class MapWidget extends StatefulWidget {
   final double width, height;
 
-  MapViewWidget({required this.width, required this.height});
+  MapWidget({required this.width, required this.height});
 
   @override
-  State<MapViewWidget> createState() => _MapViewWidget();
+  State<MapWidget> createState() => _MapViewWidget();
 }
 
-class _MapViewWidget extends State<MapViewWidget> {
+class _MapViewWidget extends State<MapWidget> {
   List<PinModel> listPin = [];
   String filterType = "All";
   bool upDown = false;
@@ -79,8 +79,8 @@ class _MapViewWidget extends State<MapViewWidget> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.asset(
-                  "assets/images/map.jpg",
+                Image.network(
+                  "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/dklrdrhu46pf/map.jpg",
                   fit: BoxFit.cover,
                 ),
                 AnimatedPositioned(

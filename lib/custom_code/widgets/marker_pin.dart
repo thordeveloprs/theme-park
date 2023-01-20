@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'map_widget.dart';
 
 class MarkerPin extends StatefulWidget {
@@ -36,14 +38,15 @@ class _MarkerPinState extends State<MarkerPin> {
             padding: const EdgeInsets.only(bottom: 20, right: 10, left: 6),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/pin.png"),
+                image: NetworkImage(
+                    "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/w9bhxh0p23jb/pin.png"),
                 fit: BoxFit.fill,
               ),
               shape: BoxShape.circle,
             ),
             child: Icon(
               widget.data.img,
-              size: 40,
+              size: 30,
               color: widget.data.colors,
             ),
           ),

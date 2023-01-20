@@ -35,14 +35,12 @@ class _MapViewWidgetState extends State<MapViewWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Expanded(
-                child: Container(
+              Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 1,
+                child: custom_widgets.MapWidget(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 1,
-                  child: custom_widgets.MapWidget(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 1,
-                  ),
                 ),
               ),
             ],
