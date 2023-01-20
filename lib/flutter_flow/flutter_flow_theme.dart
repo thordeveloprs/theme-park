@@ -39,8 +39,16 @@ abstract class FlutterFlowTheme {
   late Color primaryText;
   late Color secondaryText;
 
-  late Color primaryBtnText;
-  late Color lineColor;
+  late Color whiteToWhite;
+  late Color rideTitleColor;
+  late Color titleAboveText;
+  late Color timeColor;
+  late Color foodPageColor;
+  late Color wytToBlack;
+  late Color blkToWyt;
+  late Color rideCardClr;
+  late Color blkToBlk;
+  late Color rideCardClrToBlack;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -70,8 +78,16 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFF101213);
   late Color secondaryText = const Color(0xFF57636C);
 
-  late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFFE0E3E7);
+  late Color whiteToWhite = Color(0xFFFFFFFF);
+  late Color rideTitleColor = Color(0xFF3360E9);
+  late Color titleAboveText = Color(0xFF97B6B5);
+  late Color timeColor = Color(0xFF7F7D9C);
+  late Color foodPageColor = Color(0xFFFEF8F3);
+  late Color wytToBlack = Color(0xFFFFFFFF);
+  late Color blkToWyt = Color(0xFF000000);
+  late Color rideCardClr = Color(0xFFF4E7D7);
+  late Color blkToBlk = Color(0xFF000000);
+  late Color rideCardClrToBlack = Color(0xFFF4E7D7);
 }
 
 abstract class Typography {
@@ -157,8 +173,16 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
 
-  late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFF22282F);
+  late Color whiteToWhite = Color(0xFFFFFFFF);
+  late Color rideTitleColor = Color(0xFFFFFFFF);
+  late Color titleAboveText = Color(0xFF97B6B5);
+  late Color timeColor = Color(0xFF7F7D9C);
+  late Color foodPageColor = Color(0xFFFEF8F3);
+  late Color wytToBlack = Color(0xFF000000);
+  late Color blkToWyt = Color(0xFFFFFFFF);
+  late Color rideCardClr = Color(0xFFF4E7D7);
+  late Color blkToBlk = Color(0xFF000000);
+  late Color rideCardClrToBlack = Color(0xFF95A1AC);
 }
 
 extension TextStyleHelper on TextStyle {

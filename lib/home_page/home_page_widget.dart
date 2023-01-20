@@ -26,14 +26,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+      backgroundColor: Colors.white,
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            if (Theme.of(context).brightness == Brightness.light)
               Expanded(
                 child: Stack(
                   children: [
@@ -55,16 +54,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     Align(
                       alignment: AlignmentDirectional(0, -0.65),
                       child: Container(
-                        width: 450,
-                        height: 450,
+                        width: 500,
+                        height: 500,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color: Colors.white,
                           shape: BoxShape.circle,
                         ),
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.07, -0.31),
+                      alignment: AlignmentDirectional(0, -0.29),
                       child: Image.asset(
                         'assets/images/giphy_(1).gif',
                         width: 300,
@@ -127,6 +126,186 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        fontSize: 18,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.96, 0.61),
+                      child: SvgPicture.asset(
+                        'assets/images/639cc9bfbcb1915406c8e470_floating-yellow-fish.svg',
+                        width: 55,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-1.05, 0.87),
+                      child: SvgPicture.asset(
+                        'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.98, -0.74),
+                      child: Image.asset(
+                        'assets/images/ballon.png',
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.34, 1.04),
+                      child: SvgPicture.asset(
+                        'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.59, 0.99),
+                      child: Image.asset(
+                        'assets/images/starfishh.png',
+                        width: 55,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/images/png-transparent-starry-sky-during-nighttime-atmosphere-sky-space-astronomy-night-space-pic-miscellaneous-texture-food-thumbnail.png',
+                      width: double.infinity,
+                      height: 1,
+                      fit: BoxFit.cover,
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.02, -0.86),
+                      child: Image.asset(
+                        'assets/images/logo_them_park_(1).png',
+                        width: 150,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            if (Theme.of(context).brightness == Brightness.dark)
+              Expanded(
+                child: Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 1),
+                      child: Container(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height * 0.65,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF699DF4), Color(0xFF87B1FE)],
+                            stops: [0, 1],
+                            begin: AlignmentDirectional(0, -1),
+                            end: AlignmentDirectional(0, 1),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, -0.65),
+                      child: Container(
+                        width: 500,
+                        height: 500,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/images/pngwing.com_(1).png',
+                      width: double.infinity,
+                      height: 450,
+                      fit: BoxFit.cover,
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, -0.29),
+                      child: Image.asset(
+                        'assets/images/giphy_(1).gif',
+                        width: 300,
+                        height: 320,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.97, 0.24),
+                      child: Image.asset(
+                        'assets/images/ridesss_copy.png',
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 550, 0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Welcome!',
+                              textAlign: TextAlign.center,
+                              style:
+                                  FlutterFlowTheme.of(context).title1.override(
+                                        fontFamily: 'Libre Franklin',
+                                        color: Colors.white,
+                                        fontSize: 50,
+                                      ),
+                            ),
+                            Text(
+                              'Discover the amazing world of\nfun and childhood',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                              child: FFButtonWidget(
+                                onPressed: () {
+                                  print('Button pressed ...');
+                                },
+                                text: 'Get Started',
+                                options: FFButtonOptions(
+                                  width: 325,
+                                  height: 60,
+                                  color: Color(0xFFFC6370),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 18,
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
@@ -184,8 +363,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ],
                 ),
               ),
-            ],
-          ),
+          ],
         ),
       ),
     );
