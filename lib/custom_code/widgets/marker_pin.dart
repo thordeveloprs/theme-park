@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'map_widget.dart';
+
 class MarkerPin extends StatefulWidget {
   PinModel data;
   String filterType;
 
-  MarkerPin(this.data, this.filterType, {super.key});
+  MarkerPin(this.data, this.filterType);
 
   @override
   State<MarkerPin> createState() => _MarkerPinState();
@@ -34,7 +36,7 @@ class _MarkerPinState extends State<MarkerPin> {
             padding: const EdgeInsets.only(bottom: 20, right: 10, left: 6),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("image/pin.png"),
+                image: AssetImage("assets/images/pin.png"),
                 fit: BoxFit.fill,
               ),
               shape: BoxShape.circle,

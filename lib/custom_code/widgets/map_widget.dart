@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:async';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'marker_pin.dart';
@@ -78,7 +80,7 @@ class _MapViewWidget extends State<MapViewWidget> {
               fit: StackFit.expand,
               children: [
                 Image.asset(
-                  "image/map.jpg",
+                  "assets/images/map.jpg",
                   fit: BoxFit.cover,
                 ),
                 AnimatedPositioned(

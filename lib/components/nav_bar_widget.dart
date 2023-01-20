@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class NavBarWidget extends StatefulWidget {
   const NavBarWidget({Key? key}) : super(key: key);
@@ -14,6 +15,8 @@ class NavBarWidget extends StatefulWidget {
 class _NavBarWidgetState extends State<NavBarWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0, 0.95),
       child: Padding(

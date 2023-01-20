@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class RidesDetailWidget extends StatefulWidget {
   const RidesDetailWidget({Key? key}) : super(key: key);
@@ -23,6 +24,8 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -192,36 +195,69 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: Icon(
-                                    Icons.favorite_border,
-                                    color:
-                                        FlutterFlowTheme.of(context).timeColor,
-                                    size: 24,
+                          if (!FFAppState().isfavourite)
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 10, 0),
+                                    child: Icon(
+                                      Icons.favorite_border,
+                                      color: FlutterFlowTheme.of(context)
+                                          .timeColor,
+                                      size: 24,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'Add to Favourites',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ],
+                                  Text(
+                                    'Add to Favourites',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
+                          if (FFAppState().isfavourite == true)
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 10, 0),
+                                    child: Icon(
+                                      Icons.favorite,
+                                      color: Color(0xFFFF0000),
+                                      size: 24,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Remove From Favourites',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 55, 0),
