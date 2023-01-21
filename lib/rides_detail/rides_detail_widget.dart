@@ -89,50 +89,91 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                              child: Text(
-                                'The Lost World',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .timeColor,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                child: Text(
+                                  'The Lost World',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .timeColor,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                              child: Text(
-                                'Jurassic Park Rapids\nAdventuret™',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .rideTitleColor,
-                                      fontSize: 18,
-                                    ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                child: Text(
+                                  'Jurassic Park Rapids\nAdventuret™',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .rideTitleColor,
+                                        fontSize: 18,
+                                      ),
+                                ),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15, 20, 0, 0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    FFAppState().update(() {
+                                      FFAppState().isfavourite = true;
+                                    });
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 10, 0),
+                                        child: Icon(
+                                          Icons.access_time,
+                                          color: Color(0xFFFF0000),
+                                          size: 24,
+                                        ),
+                                      ),
+                                      Text(
+                                        '12:00PM - 08:00PM',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 30, 15, 0),
                           child: Container(
-                            width: 100,
+                            width: 90,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).timeColor,
-                              borderRadius: BorderRadius.circular(16),
+                              color:
+                                  FlutterFlowTheme.of(context).rideTitleColor,
+                              borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -143,7 +184,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 0),
                                   child: Text(
-                                    'Opens at',
+                                    'Wait Time',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
@@ -156,7 +197,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   ),
                                 ),
                                 Text(
-                                  '11:00',
+                                  '40',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -171,7 +212,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 10),
                                   child: Text(
-                                    'am',
+                                    'mins',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(

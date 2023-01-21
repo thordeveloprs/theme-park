@@ -11,46 +11,48 @@ abstract class AmusementparkRecord
   static Serializer<AmusementparkRecord> get serializer =>
       _$amusementparkRecordSerializer;
 
-  @BuiltValueField(wireName: 'ride_Name')
-  String? get rideName;
+  @BuiltValueField(wireName: 'short_title')
+  String? get shortTitle;
 
-  @BuiltValueField(wireName: 'ride_Icon')
-  String? get rideIcon;
+  String? get title;
 
-  @BuiltValueField(wireName: 'ride_Image')
-  String? get rideImage;
+  String? get img;
 
-  @BuiltValueField(wireName: 'Time')
-  DateTime? get time;
+  @BuiltValueField(wireName: 'wait_time')
+  String? get waitTime;
 
-  @BuiltValueField(wireName: 'ride_Category')
-  BuiltList<String>? get rideCategory;
+  String? get time;
 
-  @BuiltValueField(wireName: 'ride_Rating')
-  int? get rideRating;
+  @BuiltValueField(wireName: 'map_link')
+  String? get mapLink;
 
-  @BuiltValueField(wireName: 'ride_Reviews')
-  String? get rideReviews;
+  @BuiltValueField(wireName: 'short_details')
+  String? get shortDetails;
 
-  @BuiltValueField(wireName: 'ride_Distance')
-  String? get rideDistance;
+  String? get details;
 
-  @BuiltValueField(wireName: 'ride_type')
-  BuiltList<String>? get rideType;
+  BuiltList<String>? get type;
+
+  double? get rating;
+
+  bool? get isFavourite;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(AmusementparkRecordBuilder builder) => builder
-    ..rideName = ''
-    ..rideIcon = ''
-    ..rideImage = ''
-    ..rideCategory = ListBuilder()
-    ..rideRating = 0
-    ..rideReviews = ''
-    ..rideDistance = ''
-    ..rideType = ListBuilder();
+    ..shortTitle = ''
+    ..title = ''
+    ..img = ''
+    ..waitTime = ''
+    ..time = ''
+    ..mapLink = ''
+    ..shortDetails = ''
+    ..details = ''
+    ..type = ListBuilder()
+    ..rating = 0.0
+    ..isFavourite = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('amusementpark');
@@ -75,27 +77,32 @@ abstract class AmusementparkRecord
 }
 
 Map<String, dynamic> createAmusementparkRecordData({
-  String? rideName,
-  String? rideIcon,
-  String? rideImage,
-  DateTime? time,
-  int? rideRating,
-  String? rideReviews,
-  String? rideDistance,
+  String? shortTitle,
+  String? title,
+  String? img,
+  String? waitTime,
+  String? time,
+  String? mapLink,
+  String? shortDetails,
+  String? details,
+  double? rating,
+  bool? isFavourite,
 }) {
   final firestoreData = serializers.toFirestore(
     AmusementparkRecord.serializer,
     AmusementparkRecord(
       (a) => a
-        ..rideName = rideName
-        ..rideIcon = rideIcon
-        ..rideImage = rideImage
+        ..shortTitle = shortTitle
+        ..title = title
+        ..img = img
+        ..waitTime = waitTime
         ..time = time
-        ..rideCategory = null
-        ..rideRating = rideRating
-        ..rideReviews = rideReviews
-        ..rideDistance = rideDistance
-        ..rideType = null,
+        ..mapLink = mapLink
+        ..shortDetails = shortDetails
+        ..details = details
+        ..type = null
+        ..rating = rating
+        ..isFavourite = isFavourite,
     ),
   );
 

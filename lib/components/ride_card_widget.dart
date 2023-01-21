@@ -16,121 +16,133 @@ class _RideCardWidgetState extends State<RideCardWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Stack(
-      children: [
-        Align(
-          alignment: AlignmentDirectional(0, -0.2),
-          child: Container(
-            width: 400,
-            height: 460,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).foodPageColor,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Card(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    color: FlutterFlowTheme.of(context).rideCardClr,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(35),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 190,
-                          height: 220,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).rideCardClr,
-                          ),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 20),
-                                  child: Text(
-                                    'Ferris wheel',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Lato',
-                                          color: FlutterFlowTheme.of(context)
-                                              .blkToBlk,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.65,
+      height: MediaQuery.of(context).size.height * 0.9,
+      decoration: BoxDecoration(
+        color: Color(0x00FFFFFF),
+      ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: AlignmentDirectional(-1, -1),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.55,
+              height: 460,
+              decoration: BoxDecoration(
+                color: Color(0x00FEF8F3),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Card(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      color: FlutterFlowTheme.of(context).rideCardClr,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(35),
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0, -1),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 220,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).rideCardClr,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15, 15, 15, 15),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 0, 20),
+                                      child: Text(
+                                        'Ferris wheel',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lato',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .blkToBlk,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 0, 35),
+                                      child: Text(
+                                        ' is an amusement ride\n consisting  of a rotating \nupright wheel with\n multiple passenger\ncarrying',
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .blkToBlk,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 35),
-                                  child: Text(
-                                    ' is an amusement ride\n consisting  of a rotating \nupright wheel with\n multiple passenger\ncarrying',
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .blkToBlk,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(0.77, -0.77),
-          child: Container(
-            width: 170,
-            height: 170,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Image.asset(
-              'assets/images/Ferris-Wheel-5.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(-0.5, -0.98),
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              color: Color(0xFF73A88D),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              Icons.favorite,
-              color: FlutterFlowTheme.of(context).whiteToWhite,
-              size: 20,
+          Align(
+            alignment: AlignmentDirectional(1, -0.75),
+            child: Container(
+              width: 170,
+              height: 170,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset(
+                'assets/images/Ferris-Wheel-5.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-      ],
+          Align(
+            alignment: AlignmentDirectional(-0.85, -0.9),
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xFF73A88D),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.favorite,
+                color: FlutterFlowTheme.of(context).whiteToWhite,
+                size: 20,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

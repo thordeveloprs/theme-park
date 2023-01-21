@@ -40,20 +40,21 @@ class _MapViewWidget extends State<MapWidget> {
         PinModel("Pin 1", 1, "Ride", Icons.attractions_outlined, Colors.red));
     listPin.add(
         PinModel("Pin 2", 2, "Ride", Icons.attractions_outlined, Colors.red));
-    listPin.add(PinModel(
-        "Pin 3", 3, "Food", Icons.lunch_dining_outlined, Colors.green));
+    listPin.add(
+        PinModel("Pin 3", 3, "Ride", Icons.attractions_outlined, Colors.red));
     listPin.add(PinModel(
         "Pin 4", 4, "Food", Icons.lunch_dining_outlined, Colors.green));
     listPin.add(PinModel(
         "Pin 5", 5, "Food", Icons.lunch_dining_outlined, Colors.green));
     listPin.add(PinModel(
-        "Pin 6", 6, "Show", Icons.movie_creation_outlined, Colors.blue));
+        "Pin 6", 6, "Food", Icons.lunch_dining_outlined, Colors.green));
     listPin.add(PinModel(
         "Pin 7", 7, "Show", Icons.movie_creation_outlined, Colors.blue));
-    listPin.add(
-        PinModel("Pin 9", 8, "Ride", Icons.attractions_outlined, Colors.red));
     listPin.add(PinModel(
-        "Pin 8", 9, "Show", Icons.movie_creation_outlined, Colors.blue));
+        "Pin 8", 8, "Show", Icons.movie_creation_outlined, Colors.blue));
+
+    listPin.add(PinModel(
+        "Pin 9", 9, "Show", Icons.movie_creation_outlined, Colors.blue));
 
     startTimer();
     super.initState();
@@ -87,71 +88,81 @@ class _MapViewWidget extends State<MapWidget> {
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    top: 320 + animationValue,
-                    right: 100,
+                    top: MediaQuery.of(context).size.height * 0.30 +
+                        animationValue,
+                    right: MediaQuery.of(context).size.width * 0.30,
                     child: MarkerPin(listPin[0], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    bottom: 350 + animationValue,
-                    left: 50,
+                    bottom: MediaQuery.of(context).size.height * 0.40 +
+                        animationValue,
+                    left: MediaQuery.of(context).size.width * 0.15,
                     child: MarkerPin(listPin[1], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    top: 50 + animationValue,
-                    right: 150,
+                    top: MediaQuery.of(context).size.height * 0.05 +
+                        animationValue,
+                    right: MediaQuery.of(context).size.width * 0.30,
                     child: MarkerPin(listPin[2], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: 170,
-                    bottom: 330 + animationValue,
+                    left: MediaQuery.of(context).size.width * .35,
+                    bottom: MediaQuery.of(context).size.height * .47 +
+                        animationValue,
                     child: MarkerPin(listPin[3], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: 110,
-                    top: 230 + animationValue,
+                    left: MediaQuery.of(context).size.width * .27,
+                    top: MediaQuery.of(context).size.height * .25 +
+                        animationValue,
                     child: MarkerPin(listPin[4], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    right: 10,
-                    bottom: 320 + animationValue,
+                    right: MediaQuery.of(context).size.width * .05,
+                    bottom: MediaQuery.of(context).size.height * .35 +
+                        animationValue,
                     child: MarkerPin(listPin[5], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    right: 130,
-                    bottom: 330 + animationValue,
+                    left: MediaQuery.of(context).size.width * .41,
+                    bottom: MediaQuery.of(context).size.height * .36 +
+                        animationValue,
                     child: MarkerPin(listPin[6], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: 170,
-                    top: 120 + animationValue,
+                    left: MediaQuery.of(context).size.width * .45,
+                    top: MediaQuery.of(context).size.height * .10 +
+                        animationValue,
                     child: MarkerPin(listPin[7], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: 150,
-                    bottom: 450 + animationValue,
+                    left: MediaQuery.of(context).size.width * .55,
+                    bottom: MediaQuery.of(context).size.height * .35 +
+                        animationValue,
                     child: MarkerPin(listPin[8], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    right: 10,
-                    top: 10 + animationValue,
+                    right: MediaQuery.of(context).size.width * .02,
+                    top: MediaQuery.of(context).size.height * .01 +
+                        animationValue,
                     child: MarkerPin(listPin[9], filterType)),
                 Positioned(
                     bottom: 0,
@@ -159,8 +170,8 @@ class _MapViewWidget extends State<MapWidget> {
                     left: 0,
                     child: SlidingUpPanel(
                         controller: panelController,
-                        minHeight: 13,
-                        maxHeight: 250,
+                        minHeight: MediaQuery.of(context).size.height * .02,
+                        maxHeight: MediaQuery.of(context).size.height * .29,
                         boxShadow: const [
                           BoxShadow(
                             color: Colors.grey,
