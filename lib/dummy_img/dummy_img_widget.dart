@@ -80,6 +80,12 @@ class _DummyImgWidgetState extends State<DummyImgWidget> {
                 fit: BoxFit.cover,
               ),
               Image.asset(
+                'assets/images/all.png',
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+              Image.asset(
                 'assets/images/pin.png',
                 width: 100,
                 height: 100,

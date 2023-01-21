@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/navv_bar_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -242,13 +243,13 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                     color: FlutterFlowTheme.of(context).foodPageColor,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: StreamBuilder<List<AmusementparkRecord>>(
                       stream: queryAmusementparkRecord(
                         queryBuilder: (amusementparkRecord) =>
                             amusementparkRecord
-                                .where('rating', isGreaterThan: 2.0)
-                                .orderBy('rating'),
+                                .where('rating', isGreaterThan: 3.0)
+                                .orderBy('rating', descending: true),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
@@ -302,7 +303,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 10, 10, 10),
+                                          10, 10, 10, 0),
                                       child: Container(
                                         width: 110,
                                         decoration: BoxDecoration(
@@ -323,25 +324,42 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            listViewAmusementparkRecord.time!,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 0, 0, 5),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Icon(
+                                              Icons.star_sharp,
+                                              color: Color(0xFFD5AB55),
+                                              size: 22,
+                                            ),
+                                            Text(
+                                              formatNumber(
+                                                listViewAmusementparkRecord
+                                                    .rating!,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.automatic,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 13,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -354,6 +372,9 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                       },
                     ),
                   ),
+                ),
+                Expanded(
+                  child: NavvBarWidget(),
                 ),
               ],
             ),
