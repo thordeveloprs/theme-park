@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class RideCardWidget extends StatefulWidget {
-  const RideCardWidget({Key? key}) : super(key: key);
+  const RideCardWidget({
+    Key? key,
+    this.data,
+  }) : super(key: key);
+
+  final AmusementparkRecord? data;
 
   @override
   _RideCardWidgetState createState() => _RideCardWidgetState();
@@ -67,7 +73,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 20),
                                       child: Text(
-                                        'Ferris wheel',
+                                        widget.data!.title!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -84,7 +90,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 35),
                                       child: Text(
-                                        ' is an amusement ride\n consisting  of a rotating \nupright wheel with\n multiple passenger\ncarrying',
+                                        widget.data!.shortDetails!,
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -119,8 +125,8 @@ class _RideCardWidgetState extends State<RideCardWidget> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
               ),
-              child: Image.asset(
-                'assets/images/Ferris-Wheel-5.jpg',
+              child: Image.network(
+                widget.data!.img!,
                 fit: BoxFit.cover,
               ),
             ),

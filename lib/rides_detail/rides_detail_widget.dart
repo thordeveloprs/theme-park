@@ -1,12 +1,19 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class RidesDetailWidget extends StatefulWidget {
-  const RidesDetailWidget({Key? key}) : super(key: key);
+  const RidesDetailWidget({
+    Key? key,
+    this.data,
+  }) : super(key: key);
+
+  final AmusementparkRecord? data;
 
   @override
   _RidesDetailWidgetState createState() => _RidesDetailWidgetState();
@@ -75,8 +82,8 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Image.asset(
-                  'assets/images/NINTCHDBPICT000648564696.webp',
+                Image.network(
+                  widget.data!.img!,
                   width: double.infinity,
                   height: 250,
                   fit: BoxFit.cover,
@@ -99,7 +106,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
-                                  'The Lost World',
+                                  widget.data!.shortTitle!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -115,7 +122,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
-                                  'Jurassic Park Rapids\nAdventuret™',
+                                  widget.data!.title!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -150,7 +157,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                         ),
                                       ),
                                       Text(
-                                        '12:00PM - 08:00PM',
+                                        widget.data!.time!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -197,7 +204,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   ),
                                 ),
                                 Text(
-                                  '40',
+                                  widget.data!.waitTime!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -242,9 +249,12 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  FFAppState().update(() {
-                                    FFAppState().isfavourite = true;
-                                  });
+                                  final amusementparkUpdateData =
+                                      createAmusementparkRecordData(
+                                    isFavourite: true,
+                                  );
+                                  await widget.data!.reference
+                                      .update(amusementparkUpdateData);
                                 },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -281,9 +291,12 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  FFAppState().update(() {
-                                    FFAppState().isfavourite = false;
-                                  });
+                                  final amusementparkUpdateData =
+                                      createAmusementparkRecordData(
+                                    isFavourite: false,
+                                  );
+                                  await widget.data!.reference
+                                      .update(amusementparkUpdateData);
                                 },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -347,7 +360,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(15, 35, 15, 0),
                       child: Text(
-                        'Enjoy a thrilling river raft ride through primeval dinosaur  habitats where you will get wet and possibly soaked.\n',
+                        widget.data!.shortDetails!,
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               fontSize: 12,
@@ -401,7 +414,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(15, 10, 0, 0),
                           child: Text(
-                            'Jurassic Park Rapids Adventure™',
+                            widget.data!.title!,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Roboto',
@@ -425,7 +438,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                           padding:
                               EdgeInsetsDirectional.fromSTEB(14, 10, 14, 0),
                           child: Text(
-                            'This ride is water journey in a circular raft.The raft will suddenly accelerate,turn and drop.The movement of the raft is very dynamic and includes sudden tilting \nand jarring actions.Riders will get wet, possibly \nsoaked.',
+                            widget.data!.details!,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Roboto',

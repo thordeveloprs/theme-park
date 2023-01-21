@@ -55,7 +55,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Rides_detail',
               path: 'ridesDetail',
-              builder: (context, params) => RidesDetailWidget(),
+              asyncParams: {
+                'data':
+                    getDoc(['amusementpark'], AmusementparkRecord.serializer),
+              },
+              builder: (context, params) => RidesDetailWidget(
+                data: params.getParam('data', ParamType.Document),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
