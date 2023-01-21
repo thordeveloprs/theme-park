@@ -53,8 +53,8 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                 color: Colors.white,
                 size: 30,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
+              onPressed: () async {
+                context.pop();
               },
             ),
           ),

@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:async';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'marker_pin.dart';
@@ -31,30 +33,22 @@ class _MapViewWidget extends State<MapWidget> {
   double animationValue = 0;
   int animationTimeInMilliSeconds = 800;
   PanelController panelController = PanelController();
+  String rideIcon = "assets/images/ride_3.png";
+  String foodIcon = "assets/images/food.png";
+  String showIcon = "assets/images/show_2.png";
 
   @override
   void initState() {
-    listPin.add(
-        PinModel("Pin 0", 0, "Ride", Icons.attractions_outlined, Colors.red));
-    listPin.add(
-        PinModel("Pin 1", 1, "Ride", Icons.attractions_outlined, Colors.red));
-    listPin.add(
-        PinModel("Pin 2", 2, "Ride", Icons.attractions_outlined, Colors.red));
-    listPin.add(
-        PinModel("Pin 3", 3, "Ride", Icons.attractions_outlined, Colors.red));
-    listPin.add(PinModel(
-        "Pin 4", 4, "Food", Icons.lunch_dining_outlined, Colors.green));
-    listPin.add(PinModel(
-        "Pin 5", 5, "Food", Icons.lunch_dining_outlined, Colors.green));
-    listPin.add(PinModel(
-        "Pin 6", 6, "Food", Icons.lunch_dining_outlined, Colors.green));
-    listPin.add(PinModel(
-        "Pin 7", 7, "Show", Icons.movie_creation_outlined, Colors.blue));
-    listPin.add(PinModel(
-        "Pin 8", 8, "Show", Icons.movie_creation_outlined, Colors.blue));
-
-    listPin.add(PinModel(
-        "Pin 9", 9, "Show", Icons.movie_creation_outlined, Colors.blue));
+    listPin.add(PinModel("Pin 0", 0, "Ride", rideIcon));
+    listPin.add(PinModel("Pin 1", 1, "Ride", rideIcon));
+    listPin.add(PinModel("Pin 2", 2, "Ride", rideIcon));
+    listPin.add(PinModel("Pin 3", 3, "Ride", rideIcon));
+    listPin.add(PinModel("Pin 4", 4, "Food", foodIcon));
+    listPin.add(PinModel("Pin 5", 5, "Food", foodIcon));
+    listPin.add(PinModel("Pin 6", 6, "Food", foodIcon));
+    listPin.add(PinModel("Pin 7", 7, "Show", showIcon));
+    listPin.add(PinModel("Pin 8", 8, "Show", showIcon));
+    listPin.add(PinModel("Pin 9", 9, "Show", showIcon));
 
     startTimer();
     super.initState();
@@ -80,8 +74,8 @@ class _MapViewWidget extends State<MapWidget> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.network(
-                  "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/dklrdrhu46pf/map.jpg",
+                Image.asset(
+                  "assets/images/map.jpg",
                   fit: BoxFit.cover,
                 ),
                 AnimatedPositioned(
@@ -308,8 +302,7 @@ class PinModel {
   String title;
   int id;
   String filterType;
-  IconData img;
-  MaterialColor colors;
+  String img;
 
-  PinModel(this.title, this.id, this.filterType, this.img, this.colors);
+  PinModel(this.title, this.id, this.filterType, this.img);
 }

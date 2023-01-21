@@ -157,7 +157,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                           Transform.rotate(
                             angle: 4.7124,
                             child: Text(
-                              'All Rides',
+                              'Rides',
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -244,7 +244,12 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: StreamBuilder<List<AmusementparkRecord>>(
-                      stream: queryAmusementparkRecord(),
+                      stream: queryAmusementparkRecord(
+                        queryBuilder: (amusementparkRecord) =>
+                            amusementparkRecord
+                                .where('rating', isGreaterThan: 2.0)
+                                .orderBy('rating'),
+                      ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
@@ -287,8 +292,8 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                           10, 10, 10, 10),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(16),
-                                        child: Image.asset(
-                                          'assets/images/istockphoto-530480059-612x612.jpg',
+                                        child: Image.network(
+                                          listViewAmusementparkRecord.img!,
                                           width: 100,
                                           height: 100,
                                           fit: BoxFit.cover,
@@ -297,34 +302,46 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
-                                      child: Text(
-                                        'Roller Coaster\n Ride',
-                                        maxLines: 2,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .blkToBlk,
-                                            ),
+                                          10, 10, 10, 10),
+                                      child: Container(
+                                        width: 110,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .rideCardClr,
+                                        ),
+                                        child: Text(
+                                          listViewAmusementparkRecord.title!,
+                                          maxLines: 2,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .blkToBlk,
+                                              ),
+                                        ),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10, 0, 0, 0),
-                                      child: Text(
-                                        '3 Places',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            listViewAmusementparkRecord.time!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
                                                       .secondaryText,
-                                              fontWeight: FontWeight.normal,
-                                            ),
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],

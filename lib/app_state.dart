@@ -29,6 +29,12 @@ class FFAppState extends ChangeNotifier {
   set isfavourite(bool _value) {
     _isfavourite = _value;
   }
+
+  bool _isMap = false;
+  bool get isMap => _isMap;
+  set isMap(bool _value) {
+    _isMap = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

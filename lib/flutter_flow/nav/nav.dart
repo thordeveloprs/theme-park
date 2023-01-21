@@ -62,6 +62,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => RidesDetailWidget(
                 data: params.getParam('data', ParamType.Document),
               ),
+            ),
+            FFRoute(
+              name: 'dummy_img',
+              path: 'dummyImg',
+              builder: (context, params) => DummyImgWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
