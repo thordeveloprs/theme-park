@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '../../backend/schema/amusementpark_record.dart';
+import '../../components/ride_card_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ComplicatedImageDemo extends StatefulWidget {
@@ -29,14 +31,23 @@ class _ComplicatedImageDemoState extends State<ComplicatedImageDemo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: CarouselSlider(
-        options: CarouselOptions(
-          autoPlay: true,
-          aspectRatio: 2.0,
-          enlargeCenterPage: true,
-        ),
-        items: [],
-      ),
+      child: CarouselSlider.builder(
+          itemCount: widget.listData!.length,
+          options: CarouselOptions(
+            autoPlay: false,
+            height: MediaQuery.of(context).size.height * 0.45,
+            aspectRatio: 2.0,
+            enlargeStrategy: CenterPageEnlargeStrategy.height,
+            enlargeCenterPage: true,
+          ),
+          itemBuilder:
+              (BuildContext context, int itemIndex, int pageViewIndex) {
+            AmusementparkRecord data = widget.listData![itemIndex];
+            return RideCardWidget(
+              data: data,
+              key: widget.key,
+            );
+          }),
     );
   }
 }
