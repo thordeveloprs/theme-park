@@ -1,5 +1,6 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -73,8 +74,9 @@ class _DummyImgWidgetState extends State<DummyImgWidget> {
                 height: 100,
                 fit: BoxFit.cover,
               ),
-              Image.asset(
-                'assets/images/map.jpg',
+              CachedNetworkImage(
+                imageUrl:
+                    'https://cdn.pixabay.com/photo/2016/10/26/19/00/domain-names-1772243_960_720.jpg',
                 width: 100,
                 height: 100,
                 fit: BoxFit.cover,

@@ -137,243 +137,331 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.16,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).wytToBlack,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(100),
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Stack(
                         children: [
-                          Transform.rotate(
-                            angle: 4.7124,
-                            child: Text(
-                              'Rides',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color:
-                                        FlutterFlowTheme.of(context).blkToWyt,
+                          Align(
+                            alignment: AlignmentDirectional(1, 0),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.84,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.45,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .foodPageColor,
+                                ),
+                                child: Container(
+                                  width: 84,
+                                  height: 45,
+                                  child: custom_widgets.ComplicatedImageDemo(
+                                    width: 84,
+                                    height: 45,
+                                    listData:
+                                        rideListPageAmusementparkRecordList
+                                            .toList(),
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation1']!),
+                                ),
+                              ),
+                            ),
                           ),
-                          Transform.rotate(
-                            angle: 4.7124,
-                            child: Text(
-                              'Shows',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color:
-                                        FlutterFlowTheme.of(context).blkToWyt,
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            elevation: 16,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(100),
+                                topLeft: Radius.circular(0),
+                                topRight: Radius.circular(0),
+                              ),
+                            ),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.16,
+                              height: MediaQuery.of(context).size.height * 0.57,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).wytToBlack,
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Transform.rotate(
+                                    angle: 4.7124,
+                                    child: InkWell(
+                                      onTap: () async {
+                                        FFAppState().update(() {
+                                          FFAppState().selectedFilter = 'Rides';
+                                        });
+                                      },
+                                      child: Text(
+                                        'Rides',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: FFAppState()
+                                                          .selectedFilter ==
+                                                      'Rides'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .listPagefltrClr
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation1']!),
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation2']!),
-                          ),
-                          Transform.rotate(
-                            angle: 4.7124,
-                            child: Text(
-                              'Food',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color:
-                                        FlutterFlowTheme.of(context).blkToWyt,
+                                  Transform.rotate(
+                                    angle: 4.7124,
+                                    child: InkWell(
+                                      onTap: () async {
+                                        FFAppState().update(() {
+                                          FFAppState().selectedFilter = 'Shows';
+                                        });
+                                      },
+                                      child: Text(
+                                        'Shows',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: FFAppState()
+                                                          .selectedFilter ==
+                                                      'Shows'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .listPagefltrClr
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation2']!),
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation3']!),
+                                  Transform.rotate(
+                                    angle: 4.7124,
+                                    child: InkWell(
+                                      onTap: () async {
+                                        FFAppState().update(() {
+                                          FFAppState().selectedFilter = 'Food';
+                                        });
+                                      },
+                                      child: Text(
+                                        'Food',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: FFAppState()
+                                                          .selectedFilter ==
+                                                      'Food'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .listPagefltrClr
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation3']!),
+                                  ),
+                                ],
+                              ).animateOnPageLoad(
+                                  animationsMap['columnOnPageLoadAnimation']!),
+                            ),
                           ),
                         ],
                       ).animateOnPageLoad(
-                          animationsMap['columnOnPageLoadAnimation']!),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(1, 0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.84,
-                          height: MediaQuery.of(context).size.height * 0.45,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).foodPageColor,
-                          ),
-                          child: Container(
-                            width: 84,
-                            height: 45,
-                            child: custom_widgets.ComplicatedImageDemo(
-                              width: 84,
-                              height: 45,
-                              listData:
-                                  rideListPageAmusementparkRecordList.toList(),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(25, 10, 0, 0),
-                  child: Text(
-                    'Recommended Rides',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Poppins',
-                          color: FlutterFlowTheme.of(context).blkToBlk,
-                        ),
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 210,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).foodPageColor,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                    child: StreamBuilder<List<AmusementparkRecord>>(
-                      stream: queryAmusementparkRecord(
-                        queryBuilder: (amusementparkRecord) =>
-                            amusementparkRecord
-                                .where('rating', isGreaterThan: 3.0)
-                                .orderBy('rating', descending: true),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                          animationsMap['stackOnPageLoadAnimation']!),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 5, 0, 0),
+                        child: Text(
+                          'Recommended Rides',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Poppins',
+                                color: FlutterFlowTheme.of(context).blkToBlk,
                               ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 210,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).foodPageColor,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          child: StreamBuilder<List<AmusementparkRecord>>(
+                            stream: queryAmusementparkRecord(
+                              queryBuilder: (amusementparkRecord) =>
+                                  amusementparkRecord
+                                      .where('rating', isGreaterThan: 3.0)
+                                      .orderBy('rating', descending: true),
                             ),
-                          );
-                        }
-                        List<AmusementparkRecord>
-                            listViewAmusementparkRecordList = snapshot.data!;
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: listViewAmusementparkRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewAmusementparkRecord =
-                                listViewAmusementparkRecordList[listViewIndex];
-                            return Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context).rideCardClr,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 10, 10, 10),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Image.network(
-                                          listViewAmusementparkRecord.img!,
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: CircularProgressIndicator(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 10, 10, 0),
-                                      child: Container(
-                                        width: 110,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .rideCardClr,
-                                        ),
-                                        child: Text(
-                                          listViewAmusementparkRecord.title!,
-                                          maxLines: 2,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
+                                  ),
+                                );
+                              }
+                              List<AmusementparkRecord>
+                                  listViewAmusementparkRecordList =
+                                  snapshot.data!;
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount:
+                                    listViewAmusementparkRecordList.length,
+                                itemBuilder: (context, listViewIndex) {
+                                  final listViewAmusementparkRecord =
+                                      listViewAmusementparkRecordList[
+                                          listViewIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5, 0, 0, 0),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: FlutterFlowTheme.of(context)
+                                          .rideCardClr,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 10, 10, 10),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              child: Image.network(
+                                                listViewAmusementparkRecord
+                                                    .img!,
+                                                width: 100,
+                                                height: 100,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 10, 10, 0),
+                                            child: Container(
+                                              width: 110,
+                                              decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .blkToBlk,
+                                                        .rideCardClr,
                                               ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 5),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.star_sharp,
-                                              color: Color(0xFFD5AB55),
-                                              size: 22,
-                                            ),
-                                            Text(
-                                              formatNumber(
+                                              child: Text(
                                                 listViewAmusementparkRecord
-                                                    .rating!,
-                                                formatType: FormatType.decimal,
-                                                decimalType:
-                                                    DecimalType.automatic,
+                                                    .title!,
+                                                maxLines: 2,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .blkToBlk,
+                                                        ),
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        fontSize: 13,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 5),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Icon(
+                                                    Icons.star_sharp,
+                                                    color: Color(0xFFD5AB55),
+                                                    size: 22,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                5, 0, 0, 0),
+                                                    child: Text(
+                                                      formatNumber(
+                                                        listViewAmusementparkRecord
+                                                            .rating!,
+                                                        formatType:
+                                                            FormatType.decimal,
+                                                        decimalType: DecimalType
+                                                            .automatic,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                fontSize: 13,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ).animateOnPageLoad(
-                            animationsMap['listViewOnPageLoadAnimation']!);
-                      },
-                    ),
+                                  );
+                                },
+                              ).animateOnPageLoad(animationsMap[
+                                  'listViewOnPageLoadAnimation']!);
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Expanded(
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
                   child: NavvBarWidget(),
                 ),
               ],

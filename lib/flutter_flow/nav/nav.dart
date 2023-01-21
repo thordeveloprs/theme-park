@@ -30,12 +30,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => RideListPageWidget(),
+      errorBuilder: (context, _) => NavigatorScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => RideListPageWidget(),
+          builder: (context, _) => NavigatorScreenWidget(),
           routes: [
             FFRoute(
               name: 'HomePage',
@@ -43,14 +43,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
+              name: 'dummy_img',
+              path: 'dummyImg',
+              builder: (context, params) => DummyImgWidget(),
+            ),
+            FFRoute(
               name: 'map_view',
               path: 'mapView',
               builder: (context, params) => MapViewWidget(),
-            ),
-            FFRoute(
-              name: 'ride_list_page',
-              path: 'rideListPage',
-              builder: (context, params) => RideListPageWidget(),
             ),
             FFRoute(
               name: 'Rides_detail',
@@ -64,9 +64,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'dummy_img',
-              path: 'dummyImg',
-              builder: (context, params) => DummyImgWidget(),
+              name: 'ride_list_page',
+              path: 'rideListPage',
+              builder: (context, params) => RideListPageWidget(),
+            ),
+            FFRoute(
+              name: 'navigator_screen',
+              path: 'navigatorScreen',
+              builder: (context, params) => NavigatorScreenWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

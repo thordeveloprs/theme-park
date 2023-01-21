@@ -35,6 +35,12 @@ class FFAppState extends ChangeNotifier {
   set isMap(bool _value) {
     _isMap = _value;
   }
+
+  String _selectedFilter = 'Rides';
+  String get selectedFilter => _selectedFilter;
+  set selectedFilter(String _value) {
+    _selectedFilter = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

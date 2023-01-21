@@ -275,7 +275,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               style:
                                   FlutterFlowTheme.of(context).title1.override(
                                         fontFamily: 'Libre Franklin',
-                                        color: Colors.white,
+                                        color: Colors.black,
                                         fontSize: 50,
                                       ),
                             ),
@@ -286,7 +286,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize: 13,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -307,7 +307,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       .subtitle2
                                       .override(
                                         fontFamily: 'Poppins',
-                                        color: Colors.white,
+                                        color: Colors.black,
                                         fontSize: 18,
                                       ),
                                   borderSide: BorderSide(

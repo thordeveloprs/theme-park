@@ -77,7 +77,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                         ),
                         child: Container(
                           width: double.infinity,
-                          height: 75,
+                          height: 55,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -103,7 +103,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                 children: [
                   Container(
                     width: 55,
-                    height: 45,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: Colors.white,
                     ),
@@ -207,7 +207,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                   ),
                   Container(
                     width: 55,
-                    height: 45,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: Colors.white,
                     ),

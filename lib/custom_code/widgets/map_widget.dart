@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'index.dart'; // Imports other custom widgets
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
@@ -33,22 +33,25 @@ class _MapViewWidget extends State<MapWidget> {
   double animationValue = 0;
   int animationTimeInMilliSeconds = 800;
   PanelController panelController = PanelController();
-  String rideIcon = "assets/images/ride_3.png";
-  String foodIcon = "assets/images/food.png";
-  String showIcon = "assets/images/show_2.png";
+  String rideIcon =
+      "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/eyb4mh8cp0ed/ride_3.png";
+  String foodIcon =
+      "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/2dfdoxeu1un1/food.png";
+  String showIcon =
+      "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/6rmqspifhlml/show_2.png";
 
   @override
   void initState() {
-    listPin.add(PinModel("Pin 0", 0, "Ride", rideIcon));
-    listPin.add(PinModel("Pin 1", 1, "Ride", rideIcon));
-    listPin.add(PinModel("Pin 2", 2, "Ride", rideIcon));
-    listPin.add(PinModel("Pin 3", 3, "Ride", rideIcon));
-    listPin.add(PinModel("Pin 4", 4, "Food", foodIcon));
-    listPin.add(PinModel("Pin 5", 5, "Food", foodIcon));
-    listPin.add(PinModel("Pin 6", 6, "Food", foodIcon));
-    listPin.add(PinModel("Pin 7", 7, "Show", showIcon));
-    listPin.add(PinModel("Pin 8", 8, "Show", showIcon));
-    listPin.add(PinModel("Pin 9", 9, "Show", showIcon));
+    listPin.add(PinModel("Pin 0", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
+    listPin.add(PinModel("Pin 1", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
+    listPin.add(PinModel("Pin 2", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
+    listPin.add(PinModel("Pin 3", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
+    listPin.add(PinModel("Pin 4", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon));
+    listPin.add(PinModel("Pin 5", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon));
+    listPin.add(PinModel("Pin 6", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon));
+    listPin.add(PinModel("Pin 7", "YcUE5DCvygSXNgG95QWe", "Show", showIcon));
+    listPin.add(PinModel("Pin 8", "YcUE5DCvygSXNgG95QWe", "Show", showIcon));
+    listPin.add(PinModel("Pin 9", "YcUE5DCvygSXNgG95QWe", "Show", showIcon));
 
     startTimer();
     super.initState();
@@ -74,8 +77,9 @@ class _MapViewWidget extends State<MapWidget> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.asset(
-                  "assets/images/map.jpg",
+                CachedNetworkImage(
+                  imageUrl:
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/dklrdrhu46pf/map.jpg',
                   fit: BoxFit.cover,
                 ),
                 AnimatedPositioned(
@@ -165,7 +169,7 @@ class _MapViewWidget extends State<MapWidget> {
                     child: SlidingUpPanel(
                         controller: panelController,
                         minHeight: MediaQuery.of(context).size.height * .02,
-                        maxHeight: MediaQuery.of(context).size.height * .29,
+                        maxHeight: MediaQuery.of(context).size.height * .30,
                         boxShadow: const [
                           BoxShadow(
                             color: Colors.grey,
@@ -197,25 +201,25 @@ class _MapViewWidget extends State<MapWidget> {
                                 child: Wrap(
                                   children: [
                                     slidingUpPanelWidget(
-                                        "All",
-                                        Icons.group_work_outlined,
-                                        Colors.purple,
-                                        Colors.white),
+                                      "All",
+                                      "assets/images/all.png",
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                    ),
                                     slidingUpPanelWidget(
-                                        "Ride",
-                                        Icons.attractions_outlined,
-                                        Colors.red,
-                                        Colors.white),
+                                      "Ride",
+                                      rideIcon,
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                    ),
                                     slidingUpPanelWidget(
-                                        "Show",
-                                        Icons.movie_creation_outlined,
-                                        Colors.blue,
-                                        Colors.white),
+                                      "Show",
+                                      showIcon,
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                    ),
                                     slidingUpPanelWidget(
-                                        "Food",
-                                        Icons.lunch_dining_outlined,
-                                        Colors.green,
-                                        Colors.white),
+                                      "Food",
+                                      foodIcon,
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -249,8 +253,7 @@ class _MapViewWidget extends State<MapWidget> {
     });
   }
 
-  Widget slidingUpPanelWidget(
-      String title, IconData icon, Color backColor, Color iconColor) {
+  Widget slidingUpPanelWidget(String title, String img, Color backColor) {
     bool isSelected = false;
     if (title == filterType) {
       isSelected = true;
@@ -265,11 +268,12 @@ class _MapViewWidget extends State<MapWidget> {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           color: backColor,
-          border: Border.all(color: Colors.pink, width: isSelected ? 3 : 0),
+          border: Border.all(
+              color: isSelected ? Colors.pink : Colors.white, width: 3),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
@@ -282,13 +286,14 @@ class _MapViewWidget extends State<MapWidget> {
           children: [
             Text(
               title,
-              style: const TextStyle(color: Colors.white, fontSize: 20),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8),
-              child: Icon(
-                icon,
-                color: iconColor,
+              child: Image.asset(
+                img,
+                width: 25,
+                height: 25,
               ),
             ),
           ],
@@ -300,7 +305,7 @@ class _MapViewWidget extends State<MapWidget> {
 
 class PinModel {
   String title;
-  int id;
+  String id;
   String filterType;
   String img;
 
