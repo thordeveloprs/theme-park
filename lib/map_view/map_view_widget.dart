@@ -32,18 +32,20 @@ class _MapViewWidgetState extends State<MapViewWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: custom_widgets.MapWidget(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 1,
-                child: custom_widgets.MapWidget(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 1,
-                ),
+                height: double.infinity,
               ),
-            ],
+            ),
           ),
         ),
       ),

@@ -48,14 +48,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
-              name: 'Rides_detail',
-              path: 'ridesDetail',
-              builder: (context, params) => RidesDetailWidget(),
-            ),
-            FFRoute(
               name: 'ride_Detailpage',
               path: 'rideDetailpage',
               builder: (context, params) => RideDetailpageWidget(),
+            ),
+            FFRoute(
+              name: 'Rides_detail',
+              path: 'ridesDetail',
+              builder: (context, params) => RidesDetailWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
