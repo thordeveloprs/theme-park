@@ -38,14 +38,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, _) => RideListPageWidget(),
           routes: [
             FFRoute(
-              name: 'map_view',
-              path: 'mapView',
-              builder: (context, params) => MapViewWidget(),
-            ),
-            FFRoute(
               name: 'HomePage',
               path: 'homePage',
               builder: (context, params) => HomePageWidget(),
+            ),
+            FFRoute(
+              name: 'map_view',
+              path: 'mapView',
+              builder: (context, params) => MapViewWidget(),
             ),
             FFRoute(
               name: 'ride_list_page',

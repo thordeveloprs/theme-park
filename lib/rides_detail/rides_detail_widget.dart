@@ -135,7 +135,42 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    15, 20, 0, 0),
+                                    15, 10, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Icon(
+                                      Icons.star_sharp,
+                                      color: Color(0xFFD5AB55),
+                                      size: 22,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15, 0, 0, 0),
+                                      child: Text(
+                                        formatNumber(
+                                          widget.data!.rating!,
+                                          formatType: FormatType.decimal,
+                                          decimalType: DecimalType.automatic,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .blkToWyt,
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15, 10, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {

@@ -171,7 +171,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                           Transform.rotate(
                             angle: 4.7124,
                             child: Text(
-                              'Popular',
+                              'Shows',
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -185,7 +185,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                           Transform.rotate(
                             angle: 4.7124,
                             child: Text(
-                              'Newest',
+                              'Food',
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -202,21 +202,23 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                     ),
                     Align(
                       alignment: AlignmentDirectional(1, 0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.84,
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.84,
-                          height: MediaQuery.of(context).size.height * 0.5,
-                          child: custom_widgets.ComplicatedImageDemo(
-                            width: MediaQuery.of(context).size.width * 0.84,
-                            height: MediaQuery.of(context).size.height * 0.5,
-                            listData:
-                                rideListPageAmusementparkRecordList.toList(),
+                          height: MediaQuery.of(context).size.height * 0.45,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).foodPageColor,
+                          ),
+                          child: Container(
+                            width: 84,
+                            height: 45,
+                            child: custom_widgets.ComplicatedImageDemo(
+                              width: 84,
+                              height: 45,
+                              listData:
+                                  rideListPageAmusementparkRecordList.toList(),
+                            ),
                           ),
                         ),
                       ),

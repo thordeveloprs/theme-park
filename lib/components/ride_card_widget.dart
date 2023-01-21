@@ -23,7 +23,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width * 0.65,
+      width: MediaQuery.of(context).size.width * 0.6,
       height: MediaQuery.of(context).size.height * 0.9,
       decoration: BoxDecoration(
         color: Color(0x00FFFFFF),
@@ -92,6 +92,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                       child: Text(
                                         widget.data!.shortDetails!,
                                         textAlign: TextAlign.start,
+                                        maxLines: 4,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -119,8 +120,8 @@ class _RideCardWidgetState extends State<RideCardWidget> {
           Align(
             alignment: AlignmentDirectional(1, -0.75),
             child: Container(
-              width: 170,
-              height: 170,
+              width: 130,
+              height: 130,
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
