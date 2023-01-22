@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'index.dart'; // Imports other custom widgets
@@ -33,6 +35,8 @@ class _MapViewWidget extends State<MapWidget> {
   double animationValue = 0;
   int animationTimeInMilliSeconds = 800;
   PanelController panelController = PanelController();
+  String all =
+      "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/8ui5t6b4qtqs/all.png";
   String rideIcon =
       "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/eyb4mh8cp0ed/ride_3.png";
   String foodIcon =
@@ -86,31 +90,31 @@ class _MapViewWidget extends State<MapWidget> {
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    top: MediaQuery.of(context).size.height * 0.30 +
+                    bottom: MediaQuery.of(context).size.height * 0.40 +
                         animationValue,
-                    right: MediaQuery.of(context).size.width * 0.30,
+                    right: MediaQuery.of(context).size.width * 0.25,
                     child: MarkerPin(listPin[0], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    bottom: MediaQuery.of(context).size.height * 0.40 +
+                    bottom: MediaQuery.of(context).size.height * 0.47 +
                         animationValue,
-                    left: MediaQuery.of(context).size.width * 0.15,
+                    right: MediaQuery.of(context).size.width * 0.10,
                     child: MarkerPin(listPin[1], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    top: MediaQuery.of(context).size.height * 0.05 +
+                    top: MediaQuery.of(context).size.height * 0.10 +
                         animationValue,
-                    right: MediaQuery.of(context).size.width * 0.30,
+                    left: MediaQuery.of(context).size.width * 0.15,
                     child: MarkerPin(listPin[2], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: MediaQuery.of(context).size.width * .35,
+                    left: MediaQuery.of(context).size.width * .10,
                     bottom: MediaQuery.of(context).size.height * .47 +
                         animationValue,
                     child: MarkerPin(listPin[3], filterType)),
@@ -118,7 +122,7 @@ class _MapViewWidget extends State<MapWidget> {
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: MediaQuery.of(context).size.width * .27,
+                    right: MediaQuery.of(context).size.width * .15,
                     top: MediaQuery.of(context).size.height * .25 +
                         animationValue,
                     child: MarkerPin(listPin[4], filterType)),
@@ -126,7 +130,7 @@ class _MapViewWidget extends State<MapWidget> {
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    right: MediaQuery.of(context).size.width * .05,
+                    right: MediaQuery.of(context).size.width * .03,
                     bottom: MediaQuery.of(context).size.height * .35 +
                         animationValue,
                     child: MarkerPin(listPin[5], filterType)),
@@ -134,7 +138,7 @@ class _MapViewWidget extends State<MapWidget> {
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: MediaQuery.of(context).size.width * .41,
+                    left: MediaQuery.of(context).size.width * .40,
                     bottom: MediaQuery.of(context).size.height * .36 +
                         animationValue,
                     child: MarkerPin(listPin[6], filterType)),
@@ -142,24 +146,24 @@ class _MapViewWidget extends State<MapWidget> {
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: MediaQuery.of(context).size.width * .45,
-                    top: MediaQuery.of(context).size.height * .10 +
+                    left: MediaQuery.of(context).size.width * .40,
+                    top: MediaQuery.of(context).size.height * .01 +
                         animationValue,
                     child: MarkerPin(listPin[7], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    left: MediaQuery.of(context).size.width * .55,
-                    bottom: MediaQuery.of(context).size.height * .35 +
+                    left: MediaQuery.of(context).size.width * .10,
+                    top: MediaQuery.of(context).size.height * .47 +
                         animationValue,
                     child: MarkerPin(listPin[8], filterType)),
                 AnimatedPositioned(
                     duration: Duration(
                       milliseconds: animationTimeInMilliSeconds,
                     ),
-                    right: MediaQuery.of(context).size.width * .02,
-                    top: MediaQuery.of(context).size.height * .01 +
+                    right: MediaQuery.of(context).size.width * .01,
+                    top: MediaQuery.of(context).size.height * .12 +
                         animationValue,
                     child: MarkerPin(listPin[9], filterType)),
                 Positioned(
@@ -202,7 +206,7 @@ class _MapViewWidget extends State<MapWidget> {
                                   children: [
                                     slidingUpPanelWidget(
                                       "All",
-                                      "assets/images/all.png",
+                                      all,
                                       FlutterFlowTheme.of(context).primaryColor,
                                     ),
                                     slidingUpPanelWidget(
@@ -290,8 +294,8 @@ class _MapViewWidget extends State<MapWidget> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8),
-              child: Image.asset(
-                img,
+              child: CachedNetworkImage(
+                imageUrl: img,
                 width: 25,
                 height: 25,
               ),

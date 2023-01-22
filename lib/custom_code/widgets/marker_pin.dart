@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../components/map_popup_widget.dart';
-import 'index.dart'; // Imports other custom widgets
 
 import 'map_widget.dart';
 
@@ -27,45 +28,47 @@ class MarkerPin extends StatefulWidget {
 class _MarkerPinState extends State<MarkerPin> {
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: widget.data.filterType == widget.filterType ||
-          widget.filterType == "All",
-      child: InkWell(
-        onTap: () {
-          showBottomSheet(
-              context: context,
-              builder: (context) {
-                return MapPopupWidget(
-                  dataReff: FirebaseFirestore.instance
-                      .collection("amusementpark")
-                      .doc(widget.data.id),
-                );
-              });
-        },
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 60,
-          child: Container(
-            height: 60,
-            padding: const EdgeInsets.only(bottom: 20, right: 10, left: 6),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/pin.png"),
-                fit: BoxFit.fitHeight,
+    return widget.data.filterType == widget.filterType ||
+            widget.filterType == "All"
+        ? InkWell(
+            onTap: () {
+              showBottomSheet(
+                  context: context,
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  builder: (context) {
+                    return MapPopupWidget(
+                      dataReff: FirebaseFirestore.instance
+                          .collection("amusementpark")
+                          .doc(widget.data.id),
+                    );
+                  });
+            },
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 60,
+              child: Container(
+                height: 60,
+                padding: const EdgeInsets.only(bottom: 20, right: 10, left: 6),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: CachedNetworkImageProvider(
+                        "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/amusement-twoj3y/assets/w9bhxh0p23jb/pin.png"),
+                    fit: BoxFit.fitHeight,
+                  ),
+                  shape: BoxShape.circle,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: CachedNetworkImage(
+                    imageUrl: widget.data.img,
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
               ),
-              shape: BoxShape.circle,
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: CachedNetworkImage(
-                imageUrl: widget.data.img,
-                width: 30,
-                height: 30,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+          )
+        : SizedBox.shrink();
   }
 }

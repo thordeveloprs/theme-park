@@ -69,9 +69,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => RideListPageWidget(),
             ),
             FFRoute(
+              name: 'Ticket',
+              path: 'ticket',
+              builder: (context, params) => TicketWidget(),
+            ),
+            FFRoute(
               name: 'navigator_screen',
               path: 'navigatorScreen',
               builder: (context, params) => NavigatorScreenWidget(),
+            ),
+            FFRoute(
+              name: 'TicketOrder',
+              path: 'ticketOrder',
+              builder: (context, params) => TicketOrderWidget(),
+            ),
+            FFRoute(
+              name: 'PaymentSuccess',
+              path: 'paymentSuccess',
+              builder: (context, params) => PaymentSuccessWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
