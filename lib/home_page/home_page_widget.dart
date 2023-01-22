@@ -29,7 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Column(
@@ -60,7 +60,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         width: 500,
                         height: 500,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -123,7 +123,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 options: FFButtonOptions(
                                   width: 325,
                                   height: 60,
-                                  color: Color(0xFFFC6370),
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .subtitle2
                                       .override(
@@ -168,7 +168,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.34, 1.04),
+                      alignment: AlignmentDirectional(0.66, 1.14),
                       child: SvgPicture.asset(
                         'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
                         width: 100,

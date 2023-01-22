@@ -130,7 +130,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
             snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).foodPageColor,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           body: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
             child: Column(
@@ -154,7 +154,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                     MediaQuery.of(context).size.height * 0.45,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .foodPageColor,
+                                      .primaryBackground,
                                 ),
                                 child: Container(
                                   width: 84,
@@ -187,7 +187,8 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                               width: MediaQuery.of(context).size.width * 0.16,
                               height: MediaQuery.of(context).size.height * 0.57,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).wytToBlack,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
                                 borderRadius: BorderRadius.circular(0),
                               ),
                               child: Column(
@@ -213,9 +214,9 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                           .selectedFilter ==
                                                       'Rides'
                                                   ? FlutterFlowTheme.of(context)
-                                                      .listPagefltrClr
+                                                      .secondaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .alternate,
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -241,9 +242,9 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                           .selectedFilter ==
                                                       'Shows'
                                                   ? FlutterFlowTheme.of(context)
-                                                      .listPagefltrClr
+                                                      .secondaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .alternate,
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -269,9 +270,9 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                           .selectedFilter ==
                                                       'Food'
                                                   ? FlutterFlowTheme.of(context)
-                                                      .listPagefltrClr
+                                                      .secondaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .alternate,
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),

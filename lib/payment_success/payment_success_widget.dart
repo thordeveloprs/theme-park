@@ -1,9 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class PaymentSuccessWidget extends StatefulWidget {
@@ -13,20 +11,9 @@ class PaymentSuccessWidget extends StatefulWidget {
   _PaymentSuccessWidgetState createState() => _PaymentSuccessWidgetState();
 }
 
-class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget>
-    with TickerProviderStateMixin {
+class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await lottieAnimationController.forward();
-      lottieAnimationController.reset();
-    });
-  }
 
   @override
   void dispose() {
@@ -37,7 +24,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    final lottieAnimationController = AnimationController(vsync: this);
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -56,19 +43,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget>
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Lottie.asset(
-                          'assets/lottie_animations/lf30_editor_lkkprwyk.json',
-                          width: MediaQuery.of(context).size.width,
-                          height: 130,
-                          fit: BoxFit.fitWidth,
-                          controller: lottieAnimationController,
-                          onLoaded: (composition) => lottieAnimationController
-                              .duration = composition.duration,
-                        ),
-                      ),
-                    ],
+                    children: [],
                   ),
                 ),
               ),
