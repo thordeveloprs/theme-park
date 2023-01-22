@@ -1,10 +1,7 @@
-import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,29 +13,9 @@ class HomePageWidget extends StatefulWidget {
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget>
-    with TickerProviderStateMixin {
-  final animationsMap = {
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-100, 27),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-  };
+class _HomePageWidgetState extends State<HomePageWidget> {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {
@@ -139,14 +116,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('map_view');
                                 },
                                 text: 'Get Started',
                                 options: FFButtonOptions(
                                   width: 325,
                                   height: 60,
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: Color(0xFFFE6370),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .subtitle2
                                       .override(
@@ -214,14 +191,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       fit: BoxFit.cover,
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.95, -0.8),
+                      alignment: AlignmentDirectional(0, -0.9),
                       child: Image.asset(
-                        'assets/images/giphy.gif',
-                        width: 100,
-                        height: 100,
+                        'assets/images/logo_them_park_(3).png',
+                        height: 80,
                         fit: BoxFit.cover,
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation']!),
+                      ),
                     ),
                   ],
                 ),
@@ -320,8 +295,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.goNamed('map_view');
                                 },
                                 text: 'Get Started',
                                 options: FFButtonOptions(
@@ -364,14 +339,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.98, -0.83),
-                      child: Image.asset(
-                        'assets/images/ballon.png',
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Align(
                       alignment: AlignmentDirectional(0.34, 1.04),
                       child: SvgPicture.asset(
                         'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
@@ -385,6 +352,22 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       child: Image.asset(
                         'assets/images/starfishh.png',
                         width: 55,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.98, -0.74),
+                      child: Image.asset(
+                        'assets/images/ballon.png',
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, -0.93),
+                      child: Image.asset(
+                        'assets/images/logo_them_park_(3).png',
+                        height: 80,
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'index.dart'; // Imports other custom widgets
-
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'dart:async';
@@ -198,65 +196,97 @@ class _MapViewWidget extends State<MapWidget> {
                     right: 0,
                     left: 0,
                     child: SlidingUpPanel(
+                        color: Colors.transparent,
                         controller: panelController,
-                        minHeight: MediaQuery.of(context).size.height * .01,
+                        minHeight: MediaQuery.of(context).size.height * .08,
                         maxHeight: MediaQuery.of(context).size.height * .30,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 3.0,
-                          ),
-                        ],
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(60.0),
-                            topRight: Radius.circular(60.0)),
+                        boxShadow: [],
                         panel: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(60)),
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                          margin: const EdgeInsets.only(bottom: 10),
-                          child: Column(
+                          color: Colors.transparent,
+                          child: Stack(
                             children: [
-                              const Icon(
-                                Icons.maximize_outlined,
-                                color: Colors.pink,
-                                size: 50,
+                              Positioned(
+                                top: 0,
+                                left: MediaQuery.of(context).size.width * .40,
+                                right: MediaQuery.of(context).size.width * .40,
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width * .2,
+                                  height:
+                                      MediaQuery.of(context).size.width * .2,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .2))),
+                                  child: const Icon(
+                                    Icons.maximize_outlined,
+                                    color: Colors.pink,
+                                    size: 50,
+                                  ),
+                                ),
                               ),
-                              const Text(
-                                "Filter by categories",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Wrap(
-                                  children: [
-                                    slidingUpPanelWidget(
-                                      "All",
-                                      all,
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                    ),
-                                    slidingUpPanelWidget(
-                                      "Ride",
-                                      rideIcon,
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                    ),
-                                    slidingUpPanelWidget(
-                                      "Show",
-                                      showIcon,
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                    ),
-                                    slidingUpPanelWidget(
-                                      "Food",
-                                      foodIcon,
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                    ),
-                                  ],
+                              Positioned(
+                                top: MediaQuery.of(context).size.height * .05,
+                                right: 0,
+                                left: 0,
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 25),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(60),
+                                        topRight: Radius.circular(60)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      // const Icon(
+                                      //   Icons.maximize_outlined,
+                                      //   color: Colors.pink,
+                                      //   size: 50,
+                                      // ),
+                                      const Text(
+                                        "Filter by categories",
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            color: Colors.blue,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Container(
+                                        margin: const EdgeInsets.only(
+                                            top: 10, bottom: 10),
+                                        child: Wrap(
+                                          children: [
+                                            slidingUpPanelWidget(
+                                              "All",
+                                              all,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                            ),
+                                            slidingUpPanelWidget(
+                                              "Ride",
+                                              rideIcon,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                            ),
+                                            slidingUpPanelWidget(
+                                              "Show",
+                                              showIcon,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                            ),
+                                            slidingUpPanelWidget(
+                                              "Food",
+                                              foodIcon,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

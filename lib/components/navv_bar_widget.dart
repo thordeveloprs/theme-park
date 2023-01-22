@@ -61,58 +61,73 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
           ),
           child: Stack(
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                      child: Material(
-                        color: Colors.transparent,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0),
-                        ),
-                        child: Container(
-                          width: double.infinity,
-                          height: 55,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 10,
-                                color: Color(0x1A57636C),
-                                offset: Offset(0, -10),
-                                spreadRadius: 0.1,
-                              )
-                            ],
+              Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                        child: Material(
+                          color: Colors.transparent,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0),
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 10,
+                                  color: Color(0x1A57636C),
+                                  offset: Offset(0, -10),
+                                  spreadRadius: 0.1,
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(0),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    width: 55,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: FaIcon(
-                        FontAwesomeIcons.ticketAlt,
-                        color: FlutterFlowTheme.of(context).primaryColor,
-                        size: 30,
+                  InkWell(
+                    onTap: () async {
+                      context.goNamed('Ticket');
+                    },
+                    child: Container(
+                      width: 55,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            FFAppState().update(() {
+                              FFAppState().isTicket = true;
+                            });
+                          },
+                          child: FaIcon(
+                            FontAwesomeIcons.ticketAlt,
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            size: 30,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -170,7 +185,9 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          if (FFAppState().isMap == false)
+                                          if (FFAppState().isfavourite ||
+                                              FFAppState().isTicket ||
+                                              FFAppState().isMap)
                                             Align(
                                               alignment:
                                                   AlignmentDirectional(0, 0),
@@ -205,18 +222,32 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                       ),
                     ],
                   ),
-                  Container(
-                    width: 55,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Icon(
-                        Icons.favorite,
-                        color: FlutterFlowTheme.of(context).primaryColor,
-                        size: 30,
+                  InkWell(
+                    onTap: () async {
+                      context.goNamed('Favourites');
+                    },
+                    child: Container(
+                      width: 55,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            FFAppState().update(() {
+                              FFAppState().isfavourite = true;
+                            });
+
+                            context.pushNamed('Favourites');
+                          },
+                          child: Icon(
+                            Icons.favorite,
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            size: 30,
+                          ),
+                        ),
                       ),
                     ),
                   ),

@@ -1,5 +1,5 @@
 import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
+import '../components/navv_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -33,20 +33,6 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
       appBar: AppBar(
         backgroundColor: Color(0xFF699DF4),
         automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
-          icon: Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-          onPressed: () async {
-            context.pop();
-          },
-        ),
         title: Text(
           'Favourites',
           style: FlutterFlowTheme.of(context).title2.override(
@@ -66,108 +52,117 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: Builder(
-                  builder: (context) {
-                    final item = FFAppState().Favourites.toList();
-                    return ListView.builder(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: item.length,
-                      itemBuilder: (context, itemIndex) {
-                        final itemItem = item[itemIndex];
-                        return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                          child: StreamBuilder<AmusementparkRecord>(
-                            stream: AmusementparkRecord.getDocument(itemItem),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50,
-                                    height: 50,
-                                    child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                    ),
-                                  ),
-                                );
-                              }
-                              final columnAmusementparkRecord = snapshot.data!;
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 10, 0, 0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(16),
-                                          child: Image.network(
-                                            'https://picsum.photos/seed/924/600',
-                                            width: 80,
-                                            height: 80,
-                                            fit: BoxFit.cover,
-                                          ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Builder(
+                      builder: (context) {
+                        final item = FFAppState().Favourites.toList();
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: item.length,
+                          itemBuilder: (context, itemIndex) {
+                            final itemItem = item[itemIndex];
+                            return Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              child: StreamBuilder<AmusementparkRecord>(
+                                stream:
+                                    AmusementparkRecord.getDocument(itemItem),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50,
+                                        height: 50,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 180, 0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              columnAmusementparkRecord.title!,
-                                              maxLines: 2,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                    );
+                                  }
+                                  final columnAmusementparkRecord =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 10, 0, 0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              child: Image.network(
+                                                'https://picsum.photos/seed/924/600',
+                                                width: 80,
+                                                height: 80,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 10, 0, 0),
-                                              child: InkWell(
-                                                onTap: () async {
-                                                  FFAppState().update(() {
-                                                    FFAppState().isfavourite =
-                                                        true;
-                                                  });
-                                                },
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 5, 0),
-                                                      child: Icon(
-                                                        Icons.access_time,
-                                                        color:
-                                                            Color(0xFFFF0000),
-                                                        size: 20,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      columnAmusementparkRecord
-                                                          .time!,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 0, 180, 0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  columnAmusementparkRecord
+                                                      .title!,
+                                                  maxLines: 2,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText1,
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 10, 0, 0),
+                                                  child: InkWell(
+                                                    onTap: () async {
+                                                      FFAppState().update(() {
+                                                        FFAppState()
+                                                            .isfavourite = true;
+                                                      });
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                      0, 5, 0),
+                                                          child: Icon(
+                                                            Icons.access_time,
+                                                            color: Color(
+                                                                0xFFFF0000),
+                                                            size: 20,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          columnAmusementparkRecord
+                                                              .time!,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
@@ -177,49 +172,54 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                                     FontWeight
                                                                         .normal,
                                                               ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
+                                                  ),
                                                 ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 15, 0),
+                                            child: InkWell(
+                                              onTap: () async {
+                                                setState(() {
+                                                  FFAppState()
+                                                      .removeFromFavourites(
+                                                          columnAmusementparkRecord
+                                                              .reference);
+                                                });
+                                              },
+                                              child: Icon(
+                                                Icons.favorite,
+                                                color: Color(0xFFFF0000),
+                                                size: 24,
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 15, 0),
-                                        child: InkWell(
-                                          onTap: () async {
-                                            setState(() {
-                                              FFAppState().removeFromFavourites(
-                                                  columnAmusementparkRecord
-                                                      .reference);
-                                            });
-                                          },
-                                          child: Icon(
-                                            Icons.favorite,
-                                            color: Color(0xFFFF0000),
-                                            size: 24,
                                           ),
-                                        ),
+                                        ],
+                                      ),
+                                      Divider(
+                                        thickness: 1,
+                                        indent: 15,
+                                        endIndent: 15,
                                       ),
                                     ],
-                                  ),
-                                  Divider(
-                                    thickness: 1,
-                                    indent: 15,
-                                    endIndent: 15,
-                                  ),
-                                ],
-                              );
-                            },
-                          ),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         );
                       },
-                    );
-                  },
+                    ),
+                  ],
                 ),
               ),
+              NavvBarWidget(),
             ],
           ),
         ),

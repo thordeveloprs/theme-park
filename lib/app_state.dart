@@ -102,6 +102,18 @@ class FFAppState extends ChangeNotifier {
   void removeFromFavourites(DocumentReference _value) {
     _Favourites.remove(_value);
   }
+
+  bool _isListview = false;
+  bool get isListview => _isListview;
+  set isListview(bool _value) {
+    _isListview = _value;
+  }
+
+  bool _isTicket = false;
+  bool get isTicket => _isTicket;
+  set isTicket(bool _value) {
+    _isTicket = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
