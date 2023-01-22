@@ -329,6 +329,8 @@ class PinModel {
   String id;
   String filterType;
   String img;
+  PanelController panelController;
 
-  PinModel(this.title, this.id, this.filterType, this.img);
+  PinModel(
+      this.title, this.id, this.filterType, this.img, this.panelController);
 }
