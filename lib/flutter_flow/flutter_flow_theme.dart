@@ -50,6 +50,7 @@ abstract class FlutterFlowTheme {
   late Color blkToBlk;
   late Color rideCardClrToBlack;
   late Color listPagefltrClr;
+  late Color ternaryBG;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -90,6 +91,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color blkToBlk = Color(0xFF000000);
   late Color rideCardClrToBlack = Color(0xFFF4E7D7);
   late Color listPagefltrClr = Color(0xFF231709);
+  late Color ternaryBG = Color(0xFFE2A64A);
 }
 
 abstract class Typography {
@@ -186,6 +188,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color blkToBlk = Color(0xFF000000);
   late Color rideCardClrToBlack = Color(0xFF95A1AC);
   late Color listPagefltrClr = Color(0xFFFFFFFF);
+  late Color ternaryBG = Color(0xFF71802B);
 }
 
 extension TextStyleHelper on TextStyle {

@@ -34,6 +34,7 @@ class _ComplicatedImageDemoState extends State<ComplicatedImageDemo> {
       child: CarouselSlider.builder(
           itemCount: widget.listData!.length,
           options: CarouselOptions(
+            enableInfiniteScroll: false,
             autoPlay: false,
             height: MediaQuery.of(context).size.height * 0.45,
             aspectRatio: 2.0,

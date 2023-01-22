@@ -74,6 +74,12 @@ class FFAppState extends ChangeNotifier {
   void removeFromProfileImgs(String _value) {
     _profileImgs.remove(_value);
   }
+
+  int _filterList = 0;
+  int get filterList => _filterList;
+  set filterList(int _value) {
+    _filterList = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

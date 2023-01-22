@@ -46,17 +46,30 @@ class _MapViewWidget extends State<MapWidget> {
 
   @override
   void initState() {
-    listPin.add(PinModel("Pin 0", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
-    listPin.add(PinModel("Pin 1", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
-    listPin.add(PinModel("Pin 2", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
-    listPin.add(PinModel("Pin 3", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon));
-    listPin.add(PinModel("Pin 4", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon));
-    listPin.add(PinModel("Pin 5", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon));
-    listPin.add(PinModel("Pin 6", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon));
-    listPin.add(PinModel("Pin 7", "YcUE5DCvygSXNgG95QWe", "Show", showIcon));
-    listPin.add(PinModel("Pin 8", "YcUE5DCvygSXNgG95QWe", "Show", showIcon));
-    listPin.add(PinModel("Pin 9", "YcUE5DCvygSXNgG95QWe", "Show", showIcon));
-
+    listPin.add(PinModel(
+        "Pin 0", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 1", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 2", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 3", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 4", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 5", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 6", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 7", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 8", "YcUE5DCvygSXNgG95QWe", "Food", foodIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 9", "YcUE5DCvygSXNgG95QWe", "Show", showIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 10", "YcUE5DCvygSXNgG95QWe", "Show", showIcon, panelController));
+    listPin.add(PinModel(
+        "Pin 11", "YcUE5DCvygSXNgG95QWe", "Show", showIcon, panelController));
     startTimer();
     super.initState();
   }
@@ -184,6 +197,7 @@ class _MapViewWidget extends State<MapWidget> {
                             topLeft: Radius.circular(18.0),
                             topRight: Radius.circular(18.0)),
                         panel: Container(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
                           margin: const EdgeInsets.only(bottom: 10),
                           child: Column(
                             children: [
@@ -275,9 +289,12 @@ class _MapViewWidget extends State<MapWidget> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
-          color: backColor,
+          color: FlutterFlowTheme.of(context).secondaryBackground,
           border: Border.all(
-              color: isSelected ? Colors.pink : Colors.white, width: 3),
+              color: isSelected
+                  ? FlutterFlowTheme.of(context).primaryColor
+                  : Colors.white,
+              width: 3),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,

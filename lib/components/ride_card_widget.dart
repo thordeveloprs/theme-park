@@ -73,7 +73,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                       Expanded(
                         child: Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: FlutterFlowTheme.of(context).rideCardClr,
+                          color: Color(0xFFEE8B60),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(35),
                           ),
@@ -91,8 +91,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                     width: double.infinity,
                                     height: 220,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .rideCardClr,
+                                      color: Color(0xFFEE8B60),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -116,7 +115,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                                     fontFamily: 'Lato',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .blkToBlk,
+                                                        .blkToWyt,
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -138,7 +137,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .blkToBlk,
+                                                                .blkToWyt,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),

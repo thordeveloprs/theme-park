@@ -339,7 +339,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.84, -0.83),
+                      alignment: AlignmentDirectional(0.98, -0.83),
                       child: Image.asset(
                         'assets/images/ballon.png',
                         width: 100,

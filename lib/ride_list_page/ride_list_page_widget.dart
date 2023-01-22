@@ -147,7 +147,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                             alignment: AlignmentDirectional(1, 0),
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.84,
                                 height:
@@ -185,7 +185,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                             ),
                             child: Container(
                               width: MediaQuery.of(context).size.width * 0.16,
-                              height: MediaQuery.of(context).size.height * 0.57,
+                              height: MediaQuery.of(context).size.height * 0.55,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -198,87 +198,156 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                 children: [
                                   Transform.rotate(
                                     angle: 4.7124,
-                                    child: InkWell(
-                                      onTap: () async {
-                                        FFAppState().update(() {
-                                          FFAppState().selectedFilter = 'Rides';
-                                        });
-                                      },
-                                      child: Text(
-                                        'Rides',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: FFAppState()
-                                                          .selectedFilter ==
-                                                      'Rides'
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .secondaryText
-                                                  : FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (FFAppState().filterList == 2)
+                                          Container(
+                                            width: 5,
+                                            height: 5,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              shape: BoxShape.circle,
                                             ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation1']!),
+                                          ),
+                                        InkWell(
+                                          onTap: () async {
+                                            FFAppState().update(() {
+                                              FFAppState().selectedFilter =
+                                                  'Rides';
+                                              FFAppState().filterList = 2;
+                                            });
+                                          },
+                                          child: Text(
+                                            'Rides',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: valueOrDefault<Color>(
+                                                    FFAppState().selectedFilter ==
+                                                            'Rides'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .alternate
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                  ),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation1']!),
+                                      ],
+                                    ),
                                   ),
                                   Transform.rotate(
                                     angle: 4.7124,
-                                    child: InkWell(
-                                      onTap: () async {
-                                        FFAppState().update(() {
-                                          FFAppState().selectedFilter = 'Shows';
-                                        });
-                                      },
-                                      child: Text(
-                                        'Shows',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: FFAppState()
-                                                          .selectedFilter ==
-                                                      'Shows'
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .secondaryText
-                                                  : FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (FFAppState().filterList == 1)
+                                          Container(
+                                            width: 5,
+                                            height: 5,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              shape: BoxShape.circle,
                                             ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation2']!),
+                                          ),
+                                        InkWell(
+                                          onTap: () async {
+                                            FFAppState().update(() {
+                                              FFAppState().selectedFilter =
+                                                  'Shows';
+                                              FFAppState().filterList = 1;
+                                            });
+                                          },
+                                          child: Text(
+                                            'Shows',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: valueOrDefault<Color>(
+                                                    FFAppState().selectedFilter ==
+                                                            'Shows'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .alternate
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                  ),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation2']!),
+                                      ],
+                                    ),
                                   ),
                                   Transform.rotate(
                                     angle: 4.7124,
-                                    child: InkWell(
-                                      onTap: () async {
-                                        FFAppState().update(() {
-                                          FFAppState().selectedFilter = 'Food';
-                                        });
-                                      },
-                                      child: Text(
-                                        'Food',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: FFAppState()
-                                                          .selectedFilter ==
-                                                      'Food'
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .secondaryText
-                                                  : FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (FFAppState().filterList == 0)
+                                          Container(
+                                            width: 5,
+                                            height: 5,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              shape: BoxShape.circle,
                                             ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation3']!),
+                                          ),
+                                        InkWell(
+                                          onTap: () async {
+                                            FFAppState().update(() {
+                                              FFAppState().selectedFilter =
+                                                  'Food';
+                                              FFAppState().filterList = 0;
+                                            });
+                                          },
+                                          child: Text(
+                                            'Food',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: valueOrDefault<Color>(
+                                                    FFAppState().selectedFilter ==
+                                                            'Food'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .alternate
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                  ),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation3']!),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ).animateOnPageLoad(
@@ -296,7 +365,9 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                               .bodyText1
                               .override(
                                 fontFamily: 'Poppins',
-                                color: FlutterFlowTheme.of(context).blkToBlk,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
                               ),
                         ),
                       ),
@@ -304,7 +375,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                         width: double.infinity,
                         height: 210,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).foodPageColor,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
@@ -348,7 +419,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                     child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       color: FlutterFlowTheme.of(context)
-                                          .rideCardClr,
+                                          .primaryBackground,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(16),
                                       ),
@@ -382,21 +453,24 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .rideCardClr,
+                                                        .primaryBackground,
                                               ),
                                               child: Text(
                                                 listViewAmusementparkRecord
                                                     .title!,
                                                 maxLines: 2,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .blkToBlk,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ),
