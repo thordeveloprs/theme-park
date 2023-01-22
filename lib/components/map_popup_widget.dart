@@ -117,8 +117,7 @@ class _MapPopupWidgetState extends State<MapPopupWidget> {
                                         width: 235.9,
                                         height: 48,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                          color: Color(0x00EFF3FA),
                                         ),
                                         child: Padding(
                                           padding:

@@ -187,7 +187,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                                         children: [
                                           if (FFAppState().isfavourite ||
                                               FFAppState().isTicket ||
-                                              FFAppState().isMap)
+                                              (FFAppState().isMap != true))
                                             Align(
                                               alignment:
                                                   AlignmentDirectional(0, 0),
@@ -197,7 +197,9 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                                                 size: 26,
                                               ),
                                             ),
-                                          if (FFAppState().isMap == true)
+                                          if (!FFAppState().isfavourite &&
+                                              !FFAppState().isTicket &&
+                                              !FFAppState().isListview)
                                             Align(
                                               alignment:
                                                   AlignmentDirectional(0, 0),

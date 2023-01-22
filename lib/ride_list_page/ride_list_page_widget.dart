@@ -1,5 +1,5 @@
 import '../backend/backend.dart';
-import '../components/navv_bar_widget.dart';
+import '../components/new_nav_bar_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -112,7 +112,10 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
     context.watch<FFAppState>();
 
     return StreamBuilder<List<AmusementparkRecord>>(
-      stream: queryAmusementparkRecord(),
+      stream: queryAmusementparkRecord(
+        queryBuilder: (amusementparkRecord) => amusementparkRecord.where('type',
+            arrayContains: FFAppState().selectedFilter),
+      ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -131,437 +134,504 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          body: GestureDetector(
-            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Stack(
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(1, 0),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.84,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.45,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                                child: Container(
-                                  width: 84,
-                                  height: 45,
-                                  child: custom_widgets.ComplicatedImageDemo(
-                                    width: 84,
-                                    height: 45,
-                                    listData:
-                                        rideListPageAmusementparkRecordList
-                                            .toList(),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Card(
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            elevation: 16,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(0),
-                                bottomRight: Radius.circular(100),
-                                topLeft: Radius.circular(0),
-                                topRight: Radius.circular(0),
-                              ),
-                            ),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.16,
-                              height: MediaQuery.of(context).size.height * 0.55,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                borderRadius: BorderRadius.circular(0),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+          body: SafeArea(
+            child: GestureDetector(
+              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+              child: Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 1,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                ),
+                child: Stack(
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Stack(
                                 children: [
-                                  Transform.rotate(
-                                    angle: 4.7124,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        if (FFAppState().filterList == 2)
-                                          Container(
-                                            width: 5,
-                                            height: 5,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              shape: BoxShape.circle,
-                                            ),
+                                  Align(
+                                    alignment: AlignmentDirectional(1, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 55, 0, 0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.84,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.45,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                        child: Container(
+                                          width: 84,
+                                          height: 45,
+                                          child: custom_widgets
+                                              .ComplicatedImageDemo(
+                                            width: 84,
+                                            height: 45,
+                                            listData:
+                                                rideListPageAmusementparkRecordList
+                                                    .toList(),
                                           ),
-                                        InkWell(
-                                          onTap: () async {
-                                            FFAppState().update(() {
-                                              FFAppState().selectedFilter =
-                                                  'Rides';
-                                              FFAppState().filterList = 2;
-                                            });
-                                          },
-                                          child: Text(
-                                            'Rides',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: valueOrDefault<Color>(
-                                                    FFAppState().selectedFilter ==
-                                                            'Rides'
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .alternate
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                  ),
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation1']!),
-                                      ],
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                  Transform.rotate(
-                                    angle: 4.7124,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        if (FFAppState().filterList == 1)
-                                          Container(
-                                            width: 5,
-                                            height: 5,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              shape: BoxShape.circle,
-                                            ),
-                                          ),
-                                        InkWell(
-                                          onTap: () async {
-                                            FFAppState().update(() {
-                                              FFAppState().selectedFilter =
-                                                  'Shows';
-                                              FFAppState().filterList = 1;
-                                            });
-                                          },
-                                          child: Text(
-                                            'Shows',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: valueOrDefault<Color>(
-                                                    FFAppState().selectedFilter ==
-                                                            'Shows'
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .alternate
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                  ),
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation2']!),
-                                      ],
+                                  Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 16,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(0),
+                                        bottomRight: Radius.circular(100),
+                                        topLeft: Radius.circular(0),
+                                        topRight: Radius.circular(0),
+                                      ),
                                     ),
-                                  ),
-                                  Transform.rotate(
-                                    angle: 4.7124,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        if (FFAppState().filterList == 0)
-                                          Container(
-                                            width: 5,
-                                            height: 5,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              shape: BoxShape.circle,
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.16,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.55,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        borderRadius: BorderRadius.circular(0),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Transform.rotate(
+                                            angle: 4.7124,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                if (FFAppState().filterList ==
+                                                    2)
+                                                  Container(
+                                                    width: 5,
+                                                    height: 5,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                  ),
+                                                InkWell(
+                                                  onTap: () async {
+                                                    FFAppState().update(() {
+                                                      FFAppState()
+                                                              .selectedFilter =
+                                                          'Rides';
+                                                      FFAppState().filterList =
+                                                          2;
+                                                    });
+                                                  },
+                                                  child: Text(
+                                                    'Rides',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            FFAppState().selectedFilter ==
+                                                                    'Rides'
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                          ),
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'textOnPageLoadAnimation1']!),
+                                              ],
                                             ),
                                           ),
-                                        InkWell(
-                                          onTap: () async {
-                                            FFAppState().update(() {
-                                              FFAppState().selectedFilter =
-                                                  'Food';
-                                              FFAppState().filterList = 0;
-                                            });
-                                          },
-                                          child: Text(
-                                            'Food',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: valueOrDefault<Color>(
-                                                    FFAppState().selectedFilter ==
-                                                            'Food'
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .alternate
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                          Transform.rotate(
+                                            angle: 4.7124,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                if (FFAppState().filterList ==
+                                                    1)
+                                                  Container(
+                                                    width: 5,
+                                                    height: 5,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                    ),
                                                   ),
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                                InkWell(
+                                                  onTap: () async {
+                                                    FFAppState().update(() {
+                                                      FFAppState()
+                                                              .selectedFilter =
+                                                          'Shows';
+                                                      FFAppState().filterList =
+                                                          1;
+                                                    });
+                                                  },
+                                                  child: Text(
+                                                    'Shows',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            FFAppState().selectedFilter ==
+                                                                    'Shows'
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                          ),
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'textOnPageLoadAnimation2']!),
+                                              ],
+                                            ),
                                           ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation3']!),
-                                      ],
+                                          Transform.rotate(
+                                            angle: 4.7124,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                if (FFAppState().filterList ==
+                                                    0)
+                                                  Container(
+                                                    width: 5,
+                                                    height: 5,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                  ),
+                                                InkWell(
+                                                  onTap: () async {
+                                                    FFAppState().update(() {
+                                                      FFAppState()
+                                                              .selectedFilter =
+                                                          'Food';
+                                                      FFAppState().filterList =
+                                                          0;
+                                                    });
+                                                  },
+                                                  child: Text(
+                                                    'Food',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            FFAppState().selectedFilter ==
+                                                                    'Food'
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                          ),
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'textOnPageLoadAnimation3']!),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation']!),
                                     ),
                                   ),
                                 ],
                               ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation']!),
-                            ),
-                          ),
-                        ],
-                      ).animateOnPageLoad(
-                          animationsMap['stackOnPageLoadAnimation']!),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(25, 5, 0, 0),
-                        child: Text(
-                          'Recommended Rides',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Poppins',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                              ),
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        height: 210,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                          child: StreamBuilder<List<AmusementparkRecord>>(
-                            stream: queryAmusementparkRecord(
-                              queryBuilder: (amusementparkRecord) =>
-                                  amusementparkRecord
-                                      .where('rating', isGreaterThan: 3.0)
-                                      .where('type',
-                                          arrayContains:
-                                              FFAppState().Recommended)
-                                      .orderBy('rating', descending: true),
-                            ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50,
-                                    height: 50,
-                                    child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                    ),
-                                  ),
-                                );
-                              }
-                              List<AmusementparkRecord>
-                                  listViewAmusementparkRecordList =
-                                  snapshot.data!;
-                              return ListView.builder(
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemCount:
-                                    listViewAmusementparkRecordList.length,
-                                itemBuilder: (context, listViewIndex) {
-                                  final listViewAmusementparkRecord =
-                                      listViewAmusementparkRecordList[
-                                          listViewIndex];
-                                  return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 0, 0, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          'Rides_detail',
-                                          queryParams: {
-                                            'data': serializeParam(
-                                              listViewAmusementparkRecord,
-                                              ParamType.Document,
-                                            ),
-                                          }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            'data': listViewAmusementparkRecord,
-                                          },
-                                        );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
+                                  animationsMap['stackOnPageLoadAnimation']!),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(25, 5, 0, 0),
+                                child: Text(
+                                  'Recommended Rides',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(16),
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 10, 10, 10),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                                child: Image.network(
-                                                  listViewAmusementparkRecord
-                                                      .img!,
-                                                  width: 100,
-                                                  height: 100,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
+                                            .primaryText,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height: 210,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 5, 0, 0),
+                                  child:
+                                      StreamBuilder<List<AmusementparkRecord>>(
+                                    stream: queryAmusementparkRecord(
+                                      queryBuilder: (amusementparkRecord) =>
+                                          amusementparkRecord
+                                              .where('rating',
+                                                  isGreaterThan: 3.0)
+                                              .where('type',
+                                                  arrayContains:
+                                                      FFAppState().Recommended)
+                                              .orderBy('rating',
+                                                  descending: true),
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 10, 10, 0),
-                                              child: Container(
-                                                width: 110,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
+                                          ),
+                                        );
+                                      }
+                                      List<AmusementparkRecord>
+                                          listViewAmusementparkRecordList =
+                                          snapshot.data!;
+                                      return ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount:
+                                            listViewAmusementparkRecordList
+                                                .length,
+                                        itemBuilder: (context, listViewIndex) {
+                                          final listViewAmusementparkRecord =
+                                              listViewAmusementparkRecordList[
+                                                  listViewIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5, 0, 0, 0),
+                                            child: InkWell(
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'Rides_detail',
+                                                  queryParams: {
+                                                    'data': serializeParam(
+                                                      listViewAmusementparkRecord,
+                                                      ParamType.Document,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'data':
+                                                        listViewAmusementparkRecord,
+                                                  },
+                                                );
+                                              },
+                                              child: Card(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(16),
                                                 ),
-                                                child: Text(
-                                                  listViewAmusementparkRecord
-                                                      .title!,
-                                                  maxLines: 2,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 0, 5),
-                                                child: Row(
+                                                child: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
-                                                    Icon(
-                                                      Icons.star_sharp,
-                                                      color: Color(0xFFD5AB55),
-                                                      size: 22,
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(10, 10,
+                                                                  10, 10),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16),
+                                                        child: Image.network(
+                                                          listViewAmusementparkRecord
+                                                              .img!,
+                                                          width: 100,
+                                                          height: 100,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
                                                     ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5, 0, 0, 0),
-                                                      child: Text(
-                                                        formatNumber(
-                                                          listViewAmusementparkRecord
-                                                              .rating!,
-                                                          formatType: FormatType
-                                                              .decimal,
-                                                          decimalType:
-                                                              DecimalType
-                                                                  .automatic,
+                                                              .fromSTEB(10, 10,
+                                                                  10, 0),
+                                                      child: Container(
+                                                        width: 110,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize: 13,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                        child: Text(
+                                                          listViewAmusementparkRecord
+                                                              .title!,
+                                                          maxLines: 2,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 0,
+                                                                    0, 5),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.star_sharp,
+                                                              color: Color(
+                                                                  0xFFD5AB55),
+                                                              size: 22,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Text(
+                                                                formatNumber(
+                                                                  listViewAmusementparkRecord
+                                                                      .rating!,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .decimal,
+                                                                  decimalType:
+                                                                      DecimalType
+                                                                          .automatic,
                                                                 ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      fontSize:
+                                                                          13,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ).animateOnPageLoad(animationsMap[
-                                  'listViewOnPageLoadAnimation']!);
-                            },
+                                          );
+                                        },
+                                      ).animateOnPageLoad(animationsMap[
+                                          'listViewOnPageLoadAnimation']!);
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 1),
+                      child: NewNavBarWidget(),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                  child: NavvBarWidget(),
-                ),
-              ],
+              ),
             ),
           ),
         );

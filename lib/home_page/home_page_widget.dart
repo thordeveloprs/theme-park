@@ -1,7 +1,10 @@
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,9 +16,55 @@ class HomePageWidget extends StatefulWidget {
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageWidgetState extends State<HomePageWidget>
+    with TickerProviderStateMixin {
+  final animationsMap = {
+    'imageOnPageLoadAnimation1': AnimationInfo(
+      loop: true,
+      reverse: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0, -20),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.linear,
+          delay: 250.ms,
+          duration: 600.ms,
+          begin: Offset(-100, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        BlurEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 700.ms,
+          begin: 10,
+          end: 0,
+        ),
+      ],
+    ),
+  };
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -117,7 +166,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('map_view');
+                                  context.pushNamed(
+                                    'map_view',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 650),
+                                      ),
+                                    },
+                                  );
                                 },
                                 text: 'Get Started',
                                 options: FFButtonOptions(
@@ -149,7 +208,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         'assets/images/639cc9bfbcb1915406c8e470_floating-yellow-fish.svg',
                         width: 55,
                         fit: BoxFit.cover,
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation1']!),
                     ),
                     Align(
                       alignment: AlignmentDirectional(-1.05, 0.87),
@@ -165,10 +225,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         'assets/images/ballon.png',
                         width: 100,
                         fit: BoxFit.cover,
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation2']!),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.66, 1.14),
+                      alignment: AlignmentDirectional(0.69, 1.05),
                       child: SvgPicture.asset(
                         'assets/images/639cc911e553bfe33b7cadee_floating-candy-bubbles.svg',
                         width: 100,
@@ -196,7 +257,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         'assets/images/logo_them_park_(3).png',
                         height: 80,
                         fit: BoxFit.cover,
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation3']!),
                     ),
                   ],
                 ),

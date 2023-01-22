@@ -60,7 +60,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
           title: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
             child: Text(
-              'Rides',
+              widget.data!.appbarname!,
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Poppins',
                     color: FlutterFlowTheme.of(context).whiteToWhite,
@@ -291,10 +291,14 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                     EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
-                                    setState(() {
-                                      FFAppState().addToFavourites(
-                                          widget.data!.reference);
-                                    });
+                                    if (!FFAppState()
+                                        .Favourites
+                                        .contains(widget.data!.reference)) {
+                                      setState(() {
+                                        FFAppState().addToFavourites(
+                                            widget.data!.reference);
+                                      });
+                                    }
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'dart:async';
@@ -206,7 +208,7 @@ class _MapViewWidget extends State<MapWidget> {
                           child: Stack(
                             children: [
                               Positioned(
-                                top: 0,
+                                top: 15,
                                 left: MediaQuery.of(context).size.width * .40,
                                 right: MediaQuery.of(context).size.width * .40,
                                 child: Container(
@@ -220,13 +222,18 @@ class _MapViewWidget extends State<MapWidget> {
                                                   .size
                                                   .width *
                                               .2))),
-                                  child: const Icon(
+                                ),
+                              ),
+                              Positioned(
+                                  top: 15,
+                                  left: MediaQuery.of(context).size.width * .40,
+                                  right:
+                                      MediaQuery.of(context).size.width * .40,
+                                  child: Icon(
                                     Icons.maximize_outlined,
                                     color: Colors.pink,
                                     size: 50,
-                                  ),
-                                ),
-                              ),
+                                  )),
                               Positioned(
                                 top: MediaQuery.of(context).size.height * .05,
                                 right: 0,
@@ -236,8 +243,8 @@ class _MapViewWidget extends State<MapWidget> {
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(60),
-                                        topRight: Radius.circular(60)),
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
                                   ),
                                   child: Column(
                                     children: [
@@ -355,7 +362,7 @@ class _MapViewWidget extends State<MapWidget> {
           children: [
             Text(
               title,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.black, fontSize: 16),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8),

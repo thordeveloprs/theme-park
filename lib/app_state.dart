@@ -114,6 +114,12 @@ class FFAppState extends ChangeNotifier {
   set isTicket(bool _value) {
     _isTicket = _value;
   }
+
+  int _currentNavigationIndex = 1;
+  int get currentNavigationIndex => _currentNavigationIndex;
+  set currentNavigationIndex(int _value) {
+    _currentNavigationIndex = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
