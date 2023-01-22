@@ -32,6 +32,11 @@ class _MarkerPinState extends State<MarkerPin> {
             widget.filterType == "All"
         ? InkWell(
             onTap: () {
+              if (widget.data.panelController.isAttached) {
+                if (widget.data.panelController.isPanelOpen) {
+                  widget.data.panelController.close();
+                }
+              }
               showBottomSheet(
                   context: context,
                   elevation: 0,
