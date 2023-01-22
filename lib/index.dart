@@ -9,3 +9,4 @@ export 'navigator_screen/navigator_screen_widget.dart'
     show NavigatorScreenWidget;
 export 'ticket_order/ticket_order_widget.dart' show TicketOrderWidget;
 export 'payment_success/payment_success_widget.dart' show PaymentSuccessWidget;
+export 'favourites/favourites_widget.dart' show FavouritesWidget;

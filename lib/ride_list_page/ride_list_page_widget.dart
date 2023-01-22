@@ -384,6 +384,9 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                               queryBuilder: (amusementparkRecord) =>
                                   amusementparkRecord
                                       .where('rating', isGreaterThan: 3.0)
+                                      .where('type',
+                                          arrayContains:
+                                              FFAppState().Recommended)
                                       .orderBy('rating', descending: true),
                             ),
                             builder: (context, snapshot) {

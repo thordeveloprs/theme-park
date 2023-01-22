@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../components/map_popup_widget.dart';
@@ -32,6 +34,7 @@ class _MarkerPinState extends State<MarkerPin> {
             widget.filterType == "All"
         ? InkWell(
             onTap: () {
+              print(widget.data.title);
               if (widget.data.panelController.isAttached) {
                 if (widget.data.panelController.isPanelOpen) {
                   widget.data.panelController.close();
@@ -50,7 +53,7 @@ class _MarkerPinState extends State<MarkerPin> {
                   });
             },
             child: SizedBox(
-              width: MediaQuery.of(context).size.width,
+              width: 50,
               height: 60,
               child: Container(
                 height: 60,

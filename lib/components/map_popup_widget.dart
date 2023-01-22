@@ -113,21 +113,30 @@ class _MapPopupWidgetState extends State<MapPopupWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 0, 0, 0),
-                                        child: Text(
-                                          containerAmusementparkRecord.title!,
-                                          maxLines: 2,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .rideTitleColor,
-                                                fontSize: 18,
-                                              ),
+                                      Container(
+                                        width: 235.9,
+                                        height: 48,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15, 0, 0, 0),
+                                          child: Text(
+                                            containerAmusementparkRecord.title!,
+                                            maxLines: 2,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .rideTitleColor,
+                                                  fontSize: 18,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                       if (containerAmusementparkRecord.type!

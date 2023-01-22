@@ -87,6 +87,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'PaymentSuccess',
               path: 'paymentSuccess',
               builder: (context, params) => PaymentSuccessWidget(),
+            ),
+            FFRoute(
+              name: 'Favourites',
+              path: 'favourites',
+              builder: (context, params) => FavouritesWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

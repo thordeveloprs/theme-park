@@ -80,6 +80,26 @@ class FFAppState extends ChangeNotifier {
   set filterList(int _value) {
     _filterList = _value;
   }
+
+  String _Recommended = 'Rides';
+  String get Recommended => _Recommended;
+  set Recommended(String _value) {
+    _Recommended = _value;
+  }
+
+  List<String> _Favourites = [];
+  List<String> get Favourites => _Favourites;
+  set Favourites(List<String> _value) {
+    _Favourites = _value;
+  }
+
+  void addToFavourites(String _value) {
+    _Favourites.add(_value);
+  }
+
+  void removeFromFavourites(String _value) {
+    _Favourites.remove(_value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
