@@ -37,6 +37,8 @@ abstract class AmusementparkRecord
 
   bool? get isFavourite;
 
+  String? get appbarname;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -52,7 +54,8 @@ abstract class AmusementparkRecord
     ..details = ''
     ..type = ListBuilder()
     ..rating = 0.0
-    ..isFavourite = false;
+    ..isFavourite = false
+    ..appbarname = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('amusementpark');
@@ -87,6 +90,7 @@ Map<String, dynamic> createAmusementparkRecordData({
   String? details,
   double? rating,
   bool? isFavourite,
+  String? appbarname,
 }) {
   final firestoreData = serializers.toFirestore(
     AmusementparkRecord.serializer,
@@ -102,7 +106,8 @@ Map<String, dynamic> createAmusementparkRecordData({
         ..details = details
         ..type = null
         ..rating = rating
-        ..isFavourite = isFavourite,
+        ..isFavourite = isFavourite
+        ..appbarname = appbarname,
     ),
   );
 

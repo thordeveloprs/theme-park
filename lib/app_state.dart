@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/lat_lng.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -75,7 +77,7 @@ class FFAppState extends ChangeNotifier {
     _profileImgs.remove(_value);
   }
 
-  int _filterList = 0;
+  int _filterList = 2;
   int get filterList => _filterList;
   set filterList(int _value) {
     _filterList = _value;
@@ -87,17 +89,17 @@ class FFAppState extends ChangeNotifier {
     _Recommended = _value;
   }
 
-  List<String> _Favourites = [];
-  List<String> get Favourites => _Favourites;
-  set Favourites(List<String> _value) {
+  List<DocumentReference> _Favourites = [];
+  List<DocumentReference> get Favourites => _Favourites;
+  set Favourites(List<DocumentReference> _value) {
     _Favourites = _value;
   }
 
-  void addToFavourites(String _value) {
+  void addToFavourites(DocumentReference _value) {
     _Favourites.add(_value);
   }
 
-  void removeFromFavourites(String _value) {
+  void removeFromFavourites(DocumentReference _value) {
     _Favourites.remove(_value);
   }
 }

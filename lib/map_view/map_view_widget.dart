@@ -1,3 +1,4 @@
+import '../components/navv_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
@@ -34,17 +35,26 @@ class _MapViewWidgetState extends State<MapViewWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Container(
             width: double.infinity,
-            height: double.infinity,
+            height: MediaQuery.of(context).size.height * 1,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
+              color: FlutterFlowTheme.of(context).whiteToWhite,
             ),
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              child: custom_widgets.MapWidget(
-                width: double.infinity,
-                height: double.infinity,
-              ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.85,
+                  child: custom_widgets.MapWidget(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.85,
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0, 0),
+                  child: NavvBarWidget(),
+                ),
+              ],
             ),
           ),
         ),

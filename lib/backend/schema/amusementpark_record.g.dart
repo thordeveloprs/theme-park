@@ -103,6 +103,13 @@ class _$AmusementparkRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.appbarname;
+    if (value != null) {
+      result
+        ..add('appbarname')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -172,6 +179,10 @@ class _$AmusementparkRecordSerializer
           result.isFavourite = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'appbarname':
+          result.appbarname = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -209,6 +220,8 @@ class _$AmusementparkRecord extends AmusementparkRecord {
   @override
   final bool? isFavourite;
   @override
+  final String? appbarname;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$AmusementparkRecord(
@@ -227,6 +240,7 @@ class _$AmusementparkRecord extends AmusementparkRecord {
       this.type,
       this.rating,
       this.isFavourite,
+      this.appbarname,
       this.ffRef})
       : super._();
 
@@ -254,6 +268,7 @@ class _$AmusementparkRecord extends AmusementparkRecord {
         type == other.type &&
         rating == other.rating &&
         isFavourite == other.isFavourite &&
+        appbarname == other.appbarname &&
         ffRef == other.ffRef;
   }
 
@@ -269,17 +284,19 @@ class _$AmusementparkRecord extends AmusementparkRecord {
                                 $jc(
                                     $jc(
                                         $jc(
-                                            $jc($jc(0, shortTitle.hashCode),
-                                                title.hashCode),
-                                            img.hashCode),
-                                        waitTime.hashCode),
-                                    time.hashCode),
-                                mapLink.hashCode),
-                            shortDetails.hashCode),
-                        details.hashCode),
-                    type.hashCode),
-                rating.hashCode),
-            isFavourite.hashCode),
+                                            $jc(
+                                                $jc($jc(0, shortTitle.hashCode),
+                                                    title.hashCode),
+                                                img.hashCode),
+                                            waitTime.hashCode),
+                                        time.hashCode),
+                                    mapLink.hashCode),
+                                shortDetails.hashCode),
+                            details.hashCode),
+                        type.hashCode),
+                    rating.hashCode),
+                isFavourite.hashCode),
+            appbarname.hashCode),
         ffRef.hashCode));
   }
 
@@ -297,6 +314,7 @@ class _$AmusementparkRecord extends AmusementparkRecord {
           ..add('type', type)
           ..add('rating', rating)
           ..add('isFavourite', isFavourite)
+          ..add('appbarname', appbarname)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -350,6 +368,10 @@ class AmusementparkRecordBuilder
   bool? get isFavourite => _$this._isFavourite;
   set isFavourite(bool? isFavourite) => _$this._isFavourite = isFavourite;
 
+  String? _appbarname;
+  String? get appbarname => _$this._appbarname;
+  set appbarname(String? appbarname) => _$this._appbarname = appbarname;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -372,6 +394,7 @@ class AmusementparkRecordBuilder
       _type = $v.type?.toBuilder();
       _rating = $v.rating;
       _isFavourite = $v.isFavourite;
+      _appbarname = $v.appbarname;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -408,6 +431,7 @@ class AmusementparkRecordBuilder
               type: _type?.build(),
               rating: rating,
               isFavourite: isFavourite,
+              appbarname: appbarname,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

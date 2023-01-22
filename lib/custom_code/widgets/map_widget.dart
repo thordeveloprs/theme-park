@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'dart:async';
@@ -197,7 +199,7 @@ class _MapViewWidget extends State<MapWidget> {
                     left: 0,
                     child: SlidingUpPanel(
                         controller: panelController,
-                        minHeight: MediaQuery.of(context).size.height * .02,
+                        minHeight: MediaQuery.of(context).size.height * .01,
                         maxHeight: MediaQuery.of(context).size.height * .30,
                         boxShadow: const [
                           BoxShadow(
@@ -206,10 +208,14 @@ class _MapViewWidget extends State<MapWidget> {
                           ),
                         ],
                         borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(18.0),
-                            topRight: Radius.circular(18.0)),
+                            topLeft: Radius.circular(60.0),
+                            topRight: Radius.circular(60.0)),
                         panel: Container(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(60)),
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                          ),
                           margin: const EdgeInsets.only(bottom: 10),
                           child: Column(
                             children: [

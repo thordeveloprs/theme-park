@@ -48,9 +48,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => DummyImgWidget(),
             ),
             FFRoute(
+              name: 'ride_list_page',
+              path: 'rideListPage',
+              builder: (context, params) => RideListPageWidget(),
+            ),
+            FFRoute(
               name: 'map_view',
               path: 'mapView',
               builder: (context, params) => MapViewWidget(),
+            ),
+            FFRoute(
+              name: 'Ticket',
+              path: 'ticket',
+              builder: (context, params) => TicketWidget(),
+            ),
+            FFRoute(
+              name: 'navigator_screen',
+              path: 'navigatorScreen',
+              builder: (context, params) => NavigatorScreenWidget(),
             ),
             FFRoute(
               name: 'Rides_detail',
@@ -62,21 +77,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => RidesDetailWidget(
                 data: params.getParam('data', ParamType.Document),
               ),
-            ),
-            FFRoute(
-              name: 'ride_list_page',
-              path: 'rideListPage',
-              builder: (context, params) => RideListPageWidget(),
-            ),
-            FFRoute(
-              name: 'Ticket',
-              path: 'ticket',
-              builder: (context, params) => TicketWidget(),
-            ),
-            FFRoute(
-              name: 'navigator_screen',
-              path: 'navigatorScreen',
-              builder: (context, params) => NavigatorScreenWidget(),
             ),
             FFRoute(
               name: 'TicketOrder',

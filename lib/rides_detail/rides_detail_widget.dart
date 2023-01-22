@@ -2,7 +2,6 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -79,102 +78,222 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Image.network(
-                  widget.data!.img!,
-                  width: double.infinity,
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                                child: Text(
-                                  widget.data!.shortTitle!,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .timeColor,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                                child: Text(
-                                  widget.data!.title!,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .rideTitleColor,
-                                        fontSize: 18,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15, 10, 0, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.star_sharp,
-                                      color: Color(0xFFD5AB55),
-                                      size: 22,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15, 0, 0, 0),
-                                      child: Text(
-                                        formatNumber(
-                                          widget.data!.rating!,
-                                          formatType: FormatType.decimal,
-                                          decimalType: DecimalType.automatic,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Image.network(
+                    widget.data!.img!,
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15, 0, 0, 0),
+                                  child: Text(
+                                    widget.data!.shortTitle!,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .timeColor,
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .blkToWyt,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15, 0, 0, 0),
+                                  child: Text(
+                                    widget.data!.title!,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .rideTitleColor,
+                                          fontSize: 18,
+                                        ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15, 10, 0, 0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.star_sharp,
+                                        color: Color(0xFFD5AB55),
+                                        size: 22,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15, 0, 0, 0),
+                                        child: Text(
+                                          formatNumber(
+                                            widget.data!.rating!,
+                                            formatType: FormatType.decimal,
+                                            decimalType: DecimalType.automatic,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .blkToWyt,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15, 10, 0, 0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      FFAppState().update(() {
+                                        FFAppState().isfavourite = true;
+                                      });
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 0, 10, 0),
+                                          child: Icon(
+                                            Icons.access_time,
+                                            color: Color(0xFFFF0000),
+                                            size: 24,
+                                          ),
+                                        ),
+                                        Text(
+                                          widget.data!.time!,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 30, 15, 0),
+                            child: Container(
+                              width: 90,
+                              decoration: BoxDecoration(
+                                color:
+                                    FlutterFlowTheme.of(context).rideTitleColor,
+                                borderRadius: BorderRadius.circular(12),
                               ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10, 0, 0),
+                                    child: Text(
+                                      'Wait Time',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .whiteToWhite,
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    widget.data!.waitTime!,
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .whiteToWhite,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 10),
+                                    child: Text(
+                                      'mins',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .whiteToWhite,
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            if (!FFAppState()
+                                .Favourites
+                                .contains(widget.data!.reference))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15, 10, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
-                                    FFAppState().update(() {
-                                      FFAppState().isfavourite = true;
+                                    setState(() {
+                                      FFAppState().addToFavourites(
+                                          widget.data!.reference);
                                     });
                                   },
                                   child: Row(
@@ -186,13 +305,14 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 10, 0),
                                         child: Icon(
-                                          Icons.access_time,
-                                          color: Color(0xFFFF0000),
+                                          Icons.favorite_border,
+                                          color: FlutterFlowTheme.of(context)
+                                              .timeColor,
                                           size: 24,
                                         ),
                                       ),
                                       Text(
-                                        widget.data!.time!,
+                                        'Add to Favourites',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -205,287 +325,180 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 30, 15, 0),
-                          child: Container(
-                            width: 90,
-                            decoration: BoxDecoration(
-                              color:
-                                  FlutterFlowTheme.of(context).rideTitleColor,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
-                                  child: Text(
-                                    'Wait Time',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .whiteToWhite,
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
+                            if (FFAppState()
+                                .Favourites
+                                .contains(widget.data!.reference))
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    setState(() {
+                                      FFAppState().removeFromFavourites(
+                                          widget.data!.reference);
+                                    });
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 10, 0),
+                                        child: Icon(
+                                          Icons.favorite,
+                                          color: Color(0xFFFF0000),
+                                          size: 24,
                                         ),
-                                  ),
-                                ),
-                                Text(
-                                  widget.data!.waitTime!,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .whiteToWhite,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.normal,
                                       ),
+                                      Text(
+                                        'Remove From Favourites',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 10),
-                                  child: Text(
-                                    'mins',
+                              ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 55, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 10, 0),
+                                    child: Icon(
+                                      Icons.location_pin,
+                                      color: Color(0xFFFF0000),
+                                      size: 24,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Show on Map',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .whiteToWhite,
-                                          fontSize: 10,
+                                          fontFamily: 'Roboto',
+                                          fontSize: 13,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                      child: Row(
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 35, 15, 0),
+                        child: Text(
+                          widget.data!.shortDetails!,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 10),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if (!FFAppState().isfavourite)
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                              child: InkWell(
-                                onTap: () async {
-                                  final amusementparkUpdateData =
-                                      createAmusementparkRecordData(
-                                    isFavourite: true,
-                                  );
-                                  await widget.data!.reference
-                                      .update(amusementparkUpdateData);
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 10, 0),
-                                      child: Icon(
-                                        Icons.favorite_border,
-                                        color: FlutterFlowTheme.of(context)
-                                            .timeColor,
-                                        size: 24,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Add to Favourites',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          if (FFAppState().isfavourite == true)
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
-                              child: InkWell(
-                                onTap: () async {
-                                  final amusementparkUpdateData =
-                                      createAmusementparkRecordData(
-                                    isFavourite: false,
-                                  );
-                                  await widget.data!.reference
-                                      .update(amusementparkUpdateData);
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 10, 0),
-                                      child: Icon(
-                                        Icons.favorite,
-                                        color: Color(0xFFFF0000),
-                                        size: 24,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Remove From Favourites',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 55, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 15, 0, 5),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
+                                      10, 0, 10, 0),
                                   child: Icon(
-                                    Icons.location_pin,
+                                    Icons.attractions,
                                     color: Color(0xFFFF0000),
                                     size: 24,
                                   ),
                                 ),
                                 Text(
-                                  'Show on Map',
+                                  'Attraction Details',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Roboto',
-                                        fontSize: 13,
+                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
                               ],
                             ),
                           ),
+                          Divider(
+                            thickness: 1,
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(15, 10, 0, 0),
+                            child: Text(
+                              widget.data!.title!,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(15, 20, 0, 0),
+                            child: Text(
+                              'ATTRACTION DESCRIPTION',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(14, 10, 14, 0),
+                            child: Text(
+                              widget.data!.details!,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 35, 15, 0),
-                      child: Text(
-                        widget.data!.shortDetails!,
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Poppins',
-                              fontSize: 12,
-                              fontWeight: FontWeight.normal,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 0),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 5),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
-                                child: Icon(
-                                  Icons.attractions,
-                                  color: Color(0xFFFF0000),
-                                  size: 24,
-                                ),
-                              ),
-                              Text(
-                                'Attraction Details',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(15, 10, 0, 0),
-                          child: Text(
-                            widget.data!.title!,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(15, 20, 0, 0),
-                          child: Text(
-                            'ATTRACTION DESCRIPTION',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                          ),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(14, 10, 14, 0),
-                          child: Text(
-                            widget.data!.details!,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

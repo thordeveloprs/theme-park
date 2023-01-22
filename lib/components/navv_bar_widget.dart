@@ -54,7 +54,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
         child: Container(
           width: double.infinity,
-          height: 95,
+          height: MediaQuery.of(context).size.height * 0.12,
           decoration: BoxDecoration(
             color: Color(0x00FFFFFF),
             borderRadius: BorderRadius.circular(20),
@@ -73,7 +73,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                         color: Colors.transparent,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                         child: Container(
                           width: double.infinity,
@@ -88,7 +88,7 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                                 spreadRadius: 0.1,
                               )
                             ],
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(0),
                           ),
                         ),
                       ),
@@ -109,8 +109,8 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                     ),
                     child: Align(
                       alignment: AlignmentDirectional(0, 0),
-                      child: Icon(
-                        Icons.format_list_bulleted_outlined,
+                      child: FaIcon(
+                        FontAwesomeIcons.ticketAlt,
                         color: FlutterFlowTheme.of(context).primaryColor,
                         size: 30,
                       ),
@@ -213,10 +213,10 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                     ),
                     child: Align(
                       alignment: AlignmentDirectional(0, 0),
-                      child: FaIcon(
-                        FontAwesomeIcons.ticketAlt,
+                      child: Icon(
+                        Icons.favorite,
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        size: 28,
+                        size: 30,
                       ),
                     ),
                   ),
