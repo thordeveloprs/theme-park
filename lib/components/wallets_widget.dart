@@ -225,7 +225,8 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                     width: 250,
                                     height: 160,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: Column(
@@ -336,7 +337,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -380,7 +381,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -453,7 +454,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -497,7 +498,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -570,7 +571,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -622,7 +623,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                 width: double.infinity,
                 height: 82,
                 decoration: BoxDecoration(
-                  color: Color(0xFFFDCE64),
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -637,7 +638,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                       'NEXT',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Poppins',
-                            color: Color(0xFF9C6A00),
+                            color: FlutterFlowTheme.of(context).blkToWyt,
                             fontSize: 18,
                             fontWeight: FontWeight.normal,
                           ),
@@ -646,7 +647,7 @@ class _WalletsWidgetState extends State<WalletsWidget>
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                       child: Icon(
                         Icons.arrow_forward,
-                        color: Color(0xFF9C6A00),
+                        color: FlutterFlowTheme.of(context).blkToWyt,
                         size: 24,
                       ),
                     ),

@@ -30,18 +30,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => HomePageWidget(),
+      errorBuilder: (context, _) => RideListPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
+          builder: (context, _) => RideListPageWidget(),
           routes: [
-            FFRoute(
-              name: 'HomePage',
-              path: 'homePage',
-              builder: (context, params) => HomePageWidget(),
-            ),
             FFRoute(
               name: 'dummy_img',
               path: 'dummyImg',
@@ -58,14 +53,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MapViewWidget(),
             ),
             FFRoute(
-              name: 'Ticket',
-              path: 'ticket',
-              builder: (context, params) => TicketWidget(),
-            ),
-            FFRoute(
               name: 'navigator_screen',
               path: 'navigatorScreen',
               builder: (context, params) => NavigatorScreenWidget(),
+            ),
+            FFRoute(
+              name: 'HomePage',
+              path: 'homePage',
+              builder: (context, params) => HomePageWidget(),
+            ),
+            FFRoute(
+              name: 'Ticket',
+              path: 'ticket',
+              builder: (context, params) => TicketWidget(),
             ),
             FFRoute(
               name: 'Rides_detail',
@@ -79,14 +79,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'TicketOrder',
-              path: 'ticketOrder',
-              builder: (context, params) => TicketOrderWidget(),
-            ),
-            FFRoute(
               name: 'PaymentSuccess',
               path: 'paymentSuccess',
               builder: (context, params) => PaymentSuccessWidget(),
+            ),
+            FFRoute(
+              name: 'TicketOrder',
+              path: 'ticketOrder',
+              builder: (context, params) => TicketOrderWidget(),
             ),
             FFRoute(
               name: 'Favourites',

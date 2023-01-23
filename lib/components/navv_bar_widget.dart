@@ -191,8 +191,8 @@ class _NavvBarWidgetState extends State<NavvBarWidget>
                                             Align(
                                               alignment:
                                                   AlignmentDirectional(0, 0),
-                                              child: Icon(
-                                                Icons.list,
+                                              child: FaIcon(
+                                                FontAwesomeIcons.list,
                                                 color: Colors.white,
                                                 size: 26,
                                               ),

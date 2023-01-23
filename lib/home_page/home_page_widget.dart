@@ -64,6 +64,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
   @override
   void initState() {
     super.initState();
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(milliseconds: 4000));
+
+      context.goNamed('map_view');
+    });
   }
 
   @override
@@ -95,10 +102,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         height: MediaQuery.of(context).size.height * 0.65,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                            colors: [Color(0xFF699DF4), Color(0xFF87B1FE)],
+                            colors: [Color(0xFF749EFB), Color(0xFF2E60EE)],
                             stops: [0, 1],
-                            begin: AlignmentDirectional(0, -1),
-                            end: AlignmentDirectional(0, 1),
+                            begin: AlignmentDirectional(0, 1),
+                            end: AlignmentDirectional(0, -1),
                           ),
                         ),
                       ),
@@ -137,7 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(0, 550, 0, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'Welcome!',
@@ -161,43 +168,44 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed(
-                                    'map_view',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 650),
-                                      ),
-                                    },
-                                  );
-                                },
-                                text: 'Get Started',
-                                options: FFButtonOptions(
-                                  width: 325,
-                                  height: 60,
-                                  color: Color(0xFFFE6370),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                      ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
+                            if (false)
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed(
+                                      'map_view',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 650),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  text: 'Get Started',
+                                  options: FFButtonOptions(
+                                    width: 325,
+                                    height: 60,
+                                    color: Color(0xFFFE6370),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                        ),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(25),
                                   ),
-                                  borderRadius: BorderRadius.circular(25),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                       ),
@@ -255,7 +263,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       alignment: AlignmentDirectional(0, -0.9),
                       child: Image.asset(
                         'assets/images/logo_them_park_(3).png',
-                        height: 80,
+                        height: 100,
                         fit: BoxFit.cover,
                       ).animateOnPageLoad(
                           animationsMap['imageOnPageLoadAnimation3']!),

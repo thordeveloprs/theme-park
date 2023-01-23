@@ -38,7 +38,7 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: AppBar(
-          backgroundColor: Color(0xFF699DF4),
+          backgroundColor: Color(0xFF2E60EE),
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
@@ -141,8 +141,8 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                     children: [
                                       Icon(
                                         Icons.star_sharp,
-                                        color: Color(0xFFD5AB55),
-                                        size: 22,
+                                        color: Color(0xFF04BF78),
+                                        size: 30,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(

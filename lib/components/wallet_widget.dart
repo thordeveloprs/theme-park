@@ -11,7 +11,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class WalletWidget extends StatefulWidget {
-  const WalletWidget({Key? key}) : super(key: key);
+  const WalletWidget({
+    Key? key,
+    this.totalAmount,
+  }) : super(key: key);
+
+  final int? totalAmount;
 
   @override
   _WalletWidgetState createState() => _WalletWidgetState();
@@ -185,8 +190,8 @@ class _WalletWidgetState extends State<WalletWidget>
           borderRadius: BorderRadius.circular(0),
           child: BackdropFilter(
             filter: ImageFilter.blur(
-              sigmaX: 5,
-              sigmaY: 5,
+              sigmaX: 12,
+              sigmaY: 12,
             ),
             child: Container(
               width: double.infinity,
@@ -269,174 +274,174 @@ class _WalletWidgetState extends State<WalletWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.29,
-                              height: 10,
-                              decoration: BoxDecoration(
-                                color: Color(0x00FFFFFF),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                width: 250,
-                                height: 160,
+                            if (false)
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.29,
+                                height: 10,
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(5),
+                                  color: Color(0x00FFFFFF),
                                 ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Row(
+                              ),
+                            Container(
+                              width: 341.7,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Image.network(
+                                        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png',
+                                        width: 80,
+                                        height: 18,
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 20, 0),
+                                    child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Image.network(
-                                          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png',
-                                          width: 80,
-                                          height: 18,
-                                          fit: BoxFit.contain,
+                                        Text(
+                                          '9836',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                        ),
+                                        Text(
+                                          '****',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                        ),
+                                        Text(
+                                          '****',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                        ),
+                                        Text(
+                                          '9836',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w800,
+                                              ),
                                         ),
                                       ],
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 20, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            '9836',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w800,
-                                                ),
-                                          ),
-                                          Text(
-                                            '****',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w800,
-                                                ),
-                                          ),
-                                          Text(
-                                            '****',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w800,
-                                                ),
-                                          ),
-                                          Text(
-                                            '9836',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w800,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 20, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'CARD HOLDER',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFFBEBEBE),
-                                                          fontSize: 10,
-                                                        ),
-                                              ),
-                                              Text(
-                                                'Kahut Paitr',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF696969),
-                                                          fontSize: 13,
-                                                          letterSpacing: 1,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'EXPIRES',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFFBEBEBE),
-                                                          fontSize: 10,
-                                                        ),
-                                              ),
-                                              Text(
-                                                '04/24',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF696969),
-                                                          fontSize: 13,
-                                                          letterSpacing: 1,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                                  .animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation1']!)
-                                  .animateOnActionTrigger(
-                                    animationsMap[
-                                        'containerOnActionTriggerAnimation1']!,
                                   ),
-                            ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 20, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'CARD HOLDER',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFBEBEBE),
+                                                        fontSize: 10,
+                                                      ),
+                                            ),
+                                            Text(
+                                              'FlutterflowDevs',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF696969),
+                                                        fontSize: 13,
+                                                        letterSpacing: 1,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'EXPIRES',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFBEBEBE),
+                                                        fontSize: 10,
+                                                      ),
+                                            ),
+                                            Text(
+                                              '04/24',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF696969),
+                                                        fontSize: 13,
+                                                        letterSpacing: 1,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                                .animateOnPageLoad(animationsMap[
+                                    'containerOnPageLoadAnimation1']!)
+                                .animateOnActionTrigger(
+                                  animationsMap[
+                                      'containerOnActionTriggerAnimation1']!,
+                                ),
                           ],
                         ),
                       ),
@@ -444,14 +449,16 @@ class _WalletWidgetState extends State<WalletWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.29,
-                              height: 10,
-                              decoration: BoxDecoration(
-                                color: Color(0x00FFFFFF),
+                            if (false)
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.29,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  color: Color(0x00FFFFFF),
+                                ),
                               ),
-                            ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -560,7 +567,7 @@ class _WalletWidgetState extends State<WalletWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 5),
                                       child: Text(
-                                        'ADD NEW',
+                                        'Click here for Payment',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -641,7 +648,7 @@ class _WalletWidgetState extends State<WalletWidget>
                                   ),
                                 ),
                                 Text(
-                                  'E-TICKETS : URBAN ZOO',
+                                  'E-TICKETS : WONDER FAIR',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -657,13 +664,15 @@ class _WalletWidgetState extends State<WalletWidget>
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.29,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: Color(0x00FFFFFF),
+                              if (false)
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.29,
+                                  height: 10,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x00FFFFFF),
+                                  ),
                                 ),
-                              ),
                               Expanded(
                                 child: Container(
                                   width: 100,
@@ -673,22 +682,10 @@ class _WalletWidgetState extends State<WalletWidget>
                                   ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Stinks700',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF696969),
-                                              fontSize: 12,
-                                              letterSpacing: 2,
-                                            ),
-                                      ),
-                                      Text(
-                                        '7 June 2014',
+                                        '24 Jan 2023',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -710,14 +707,15 @@ class _WalletWidgetState extends State<WalletWidget>
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.29,
-                                  height: 10,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x00FFFFFF),
+                                if (false)
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.29,
+                                    height: 10,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x00FFFFFF),
+                                    ),
                                   ),
-                                ),
                                 Expanded(
                                   child: Container(
                                     width: 100,
@@ -728,7 +726,7 @@ class _WalletWidgetState extends State<WalletWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
                                           'Standard',
@@ -756,7 +754,9 @@ class _WalletWidgetState extends State<WalletWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                '2',
+                                                FFAppState()
+                                                    .standardCount
+                                                    .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -795,14 +795,15 @@ class _WalletWidgetState extends State<WalletWidget>
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.29,
-                                  height: 10,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x00FFFFFF),
+                                if (false)
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.29,
+                                    height: 10,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x00FFFFFF),
+                                    ),
                                   ),
-                                ),
                                 Expanded(
                                   child: Container(
                                     width: 100,
@@ -813,10 +814,10 @@ class _WalletWidgetState extends State<WalletWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
-                                          'Balcony',
+                                          'Express  ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -841,7 +842,9 @@ class _WalletWidgetState extends State<WalletWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                '1',
+                                                FFAppState()
+                                                    .expressCount
+                                                    .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -853,7 +856,7 @@ class _WalletWidgetState extends State<WalletWidget>
                                                         ),
                                               ),
                                               Text(
-                                                '\$ 39',
+                                                '  \$ 39',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -880,14 +883,15 @@ class _WalletWidgetState extends State<WalletWidget>
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.29,
-                                  height: 10,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x00FFFFFF),
+                                if (false)
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.29,
+                                    height: 10,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x00FFFFFF),
+                                    ),
                                   ),
-                                ),
                                 Expanded(
                                   child: Container(
                                     width: 100,
@@ -898,10 +902,10 @@ class _WalletWidgetState extends State<WalletWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
-                                          'VIP',
+                                          'VIP        ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -926,7 +930,9 @@ class _WalletWidgetState extends State<WalletWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                '3',
+                                                FFAppState()
+                                                    .vipCount
+                                                    .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -977,7 +983,7 @@ class _WalletWidgetState extends State<WalletWidget>
                 width: double.infinity,
                 height: 82,
                 decoration: BoxDecoration(
-                  color: Color(0xFFFDCE64),
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -996,7 +1002,7 @@ class _WalletWidgetState extends State<WalletWidget>
                         children: [
                           FaIcon(
                             FontAwesomeIcons.stickyNote,
-                            color: Color(0xFF9C6A00),
+                            color: FlutterFlowTheme.of(context).blkToWyt,
                             size: 24,
                           ),
                           Column(
@@ -1032,7 +1038,7 @@ class _WalletWidgetState extends State<WalletWidget>
                       ),
                     ),
                     Text(
-                      '\$ 175.00',
+                      '\$ ${widget.totalAmount?.toString()}',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Poppins',
                             color: Colors.black,

@@ -565,7 +565,7 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                             Icon(
                                                               Icons.star_sharp,
                                                               color: Color(
-                                                                  0xFFD5AB55),
+                                                                  0xFF04BF78),
                                                               size: 22,
                                                             ),
                                                             Padding(

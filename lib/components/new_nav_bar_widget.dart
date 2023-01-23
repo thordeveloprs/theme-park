@@ -116,7 +116,7 @@ class _NewNavBarWidgetState extends State<NewNavBarWidget>
                       alignment: AlignmentDirectional(0, 0),
                       child: FaIcon(
                         FontAwesomeIcons.ticketAlt,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: Color(0xFF2E60EE),
                         size: 30,
                       ),
                     ),
@@ -182,8 +182,7 @@ class _NewNavBarWidgetState extends State<NewNavBarWidget>
                                     width: 65,
                                     height: 65,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color: Color(0xFF2E60EE),
                                       shape: BoxShape.circle,
                                     ),
                                     child: Row(
@@ -248,8 +247,8 @@ class _NewNavBarWidgetState extends State<NewNavBarWidget>
                     child: Align(
                       alignment: AlignmentDirectional(0, 0),
                       child: Icon(
-                        Icons.favorite,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        Icons.favorite_outlined,
+                        color: Color(0xFF2E60EE),
                         size: 30,
                       ),
                     ),

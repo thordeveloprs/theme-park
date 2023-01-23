@@ -120,6 +120,24 @@ class FFAppState extends ChangeNotifier {
   set currentNavigationIndex(int _value) {
     _currentNavigationIndex = _value;
   }
+
+  int _standardCount = 0;
+  int get standardCount => _standardCount;
+  set standardCount(int _value) {
+    _standardCount = _value;
+  }
+
+  int _expressCount = 0;
+  int get expressCount => _expressCount;
+  set expressCount(int _value) {
+    _expressCount = _value;
+  }
+
+  int _vipCount = 0;
+  int get vipCount => _vipCount;
+  set vipCount(int _value) {
+    _vipCount = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

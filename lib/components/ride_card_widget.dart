@@ -87,7 +87,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                         Expanded(
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: Color(0xFF83A5F2),
+                            color: Color(0xFF749EFB),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(35),
                             ),
@@ -105,7 +105,7 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                                       width: double.infinity,
                                       height: 220,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF83A5F2),
+                                        color: Color(0xFF749EFB),
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(

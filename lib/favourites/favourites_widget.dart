@@ -31,7 +31,7 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: Color(0xFF699DF4),
+        backgroundColor: Color(0xFF749EFB),
         automaticallyImplyLeading: false,
         title: Text(
           'Favourites',
@@ -175,7 +175,13 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                                 maxLines: 2,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1,
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: Color(
+                                                                          0xFF2E60EE),
+                                                                    ),
                                                               ),
                                                               Padding(
                                                                 padding:
@@ -215,9 +221,9 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                                           Icons
                                                                               .access_time,
                                                                           color:
-                                                                              Color(0xFFFF0000),
+                                                                              FlutterFlowTheme.of(context).timeColor,
                                                                           size:
-                                                                              20,
+                                                                              25,
                                                                         ),
                                                                       ),
                                                                       Text(
@@ -227,6 +233,7 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Roboto',
+                                                                              color: Color(0xFF04BF78),
                                                                               fontSize: 13,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
@@ -257,7 +264,7 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                           Icons.favorite,
                                                           color:
                                                               Color(0xFFFF0000),
-                                                          size: 24,
+                                                          size: 30,
                                                         ),
                                                       ),
                                                     ),
